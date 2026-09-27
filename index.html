@@ -1,0 +1,1105 @@
+<title>Mangiare a Roma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+
+
+.leaflet-pane,
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-tile-container,
+.leaflet-pane > svg,
+.leaflet-pane > canvas,
+.leaflet-zoom-box,
+.leaflet-image-layer,
+.leaflet-layer {
+	position: absolute;
+	left: 0;
+	top: 0;
+	}
+.leaflet-container {
+	overflow: hidden;
+	}
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	        user-select: none;
+	  -webkit-user-drag: none;
+	}
+
+.leaflet-tile::selection {
+	background: transparent;
+}
+
+.leaflet-safari .leaflet-tile {
+	image-rendering: -webkit-optimize-contrast;
+	}
+
+.leaflet-safari .leaflet-tile-container {
+	width: 1600px;
+	height: 1600px;
+	-webkit-transform-origin: 0 0;
+	}
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+	display: block;
+	}
+
+
+.leaflet-container .leaflet-overlay-pane svg {
+	max-width: none !important;
+	max-height: none !important;
+	}
+.leaflet-container .leaflet-marker-pane img,
+.leaflet-container .leaflet-shadow-pane img,
+.leaflet-container .leaflet-tile-pane img,
+.leaflet-container img.leaflet-image-layer,
+.leaflet-container .leaflet-tile {
+	max-width: none !important;
+	max-height: none !important;
+	width: auto;
+	padding: 0;
+	}
+
+.leaflet-container img.leaflet-tile {
+	
+	mix-blend-mode: plus-lighter;
+}
+
+.leaflet-container.leaflet-touch-zoom {
+	-ms-touch-action: pan-x pan-y;
+	touch-action: pan-x pan-y;
+	}
+.leaflet-container.leaflet-touch-drag {
+	-ms-touch-action: pinch-zoom;
+	
+	touch-action: none;
+	touch-action: pinch-zoom;
+}
+.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
+	-ms-touch-action: none;
+	touch-action: none;
+}
+.leaflet-container {
+	-webkit-tap-highlight-color: transparent;
+}
+.leaflet-container a {
+	-webkit-tap-highlight-color: rgba(51, 181, 229, 0.4);
+}
+.leaflet-tile {
+	filter: inherit;
+	visibility: hidden;
+	}
+.leaflet-tile-loaded {
+	visibility: inherit;
+	}
+.leaflet-zoom-box {
+	width: 0;
+	height: 0;
+	-moz-box-sizing: border-box;
+	     box-sizing: border-box;
+	z-index: 800;
+	}
+
+.leaflet-overlay-pane svg {
+	-moz-user-select: none;
+	}
+
+.leaflet-pane         { z-index: 400; }
+
+.leaflet-tile-pane    { z-index: 200; }
+.leaflet-overlay-pane { z-index: 400; }
+.leaflet-shadow-pane  { z-index: 500; }
+.leaflet-marker-pane  { z-index: 600; }
+.leaflet-tooltip-pane   { z-index: 650; }
+.leaflet-popup-pane   { z-index: 700; }
+
+.leaflet-map-pane canvas { z-index: 100; }
+.leaflet-map-pane svg    { z-index: 200; }
+
+.leaflet-vml-shape {
+	width: 1px;
+	height: 1px;
+	}
+.lvml {
+	behavior: url(#default#VML);
+	display: inline-block;
+	position: absolute;
+	}
+
+
+
+
+.leaflet-control {
+	position: relative;
+	z-index: 800;
+	pointer-events: visiblePainted; 
+	pointer-events: auto;
+	}
+.leaflet-top,
+.leaflet-bottom {
+	position: absolute;
+	z-index: 1000;
+	pointer-events: none;
+	}
+.leaflet-top {
+	top: 0;
+	}
+.leaflet-right {
+	right: 0;
+	}
+.leaflet-bottom {
+	bottom: 0;
+	}
+.leaflet-left {
+	left: 0;
+	}
+.leaflet-control {
+	float: left;
+	clear: both;
+	}
+.leaflet-right .leaflet-control {
+	float: right;
+	}
+.leaflet-top .leaflet-control {
+	margin-top: 10px;
+	}
+.leaflet-bottom .leaflet-control {
+	margin-bottom: 10px;
+	}
+.leaflet-left .leaflet-control {
+	margin-left: 10px;
+	}
+.leaflet-right .leaflet-control {
+	margin-right: 10px;
+	}
+
+
+
+
+.leaflet-fade-anim .leaflet-popup {
+	opacity: 0;
+	-webkit-transition: opacity 0.2s linear;
+	   -moz-transition: opacity 0.2s linear;
+	        transition: opacity 0.2s linear;
+	}
+.leaflet-fade-anim .leaflet-map-pane .leaflet-popup {
+	opacity: 1;
+	}
+.leaflet-zoom-animated {
+	-webkit-transform-origin: 0 0;
+	    -ms-transform-origin: 0 0;
+	        transform-origin: 0 0;
+	}
+svg.leaflet-zoom-animated {
+	will-change: transform;
+}
+
+.leaflet-zoom-anim .leaflet-zoom-animated {
+	-webkit-transition: -webkit-transform 0.25s cubic-bezier(0,0,0.25,1);
+	   -moz-transition:    -moz-transform 0.25s cubic-bezier(0,0,0.25,1);
+	        transition:         transform 0.25s cubic-bezier(0,0,0.25,1);
+	}
+.leaflet-zoom-anim .leaflet-tile,
+.leaflet-pan-anim .leaflet-tile {
+	-webkit-transition: none;
+	   -moz-transition: none;
+	        transition: none;
+	}
+
+.leaflet-zoom-anim .leaflet-zoom-hide {
+	visibility: hidden;
+	}
+
+
+
+
+.leaflet-interactive {
+	cursor: pointer;
+	}
+.leaflet-grab {
+	cursor: -webkit-grab;
+	cursor:    -moz-grab;
+	cursor:         grab;
+	}
+.leaflet-crosshair,
+.leaflet-crosshair .leaflet-interactive {
+	cursor: crosshair;
+	}
+.leaflet-popup-pane,
+.leaflet-control {
+	cursor: auto;
+	}
+.leaflet-dragging .leaflet-grab,
+.leaflet-dragging .leaflet-grab .leaflet-interactive,
+.leaflet-dragging .leaflet-marker-draggable {
+	cursor: move;
+	cursor: -webkit-grabbing;
+	cursor:    -moz-grabbing;
+	cursor:         grabbing;
+	}
+
+
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-image-layer,
+.leaflet-pane > svg path,
+.leaflet-tile-container {
+	pointer-events: none;
+	}
+
+.leaflet-marker-icon.leaflet-interactive,
+.leaflet-image-layer.leaflet-interactive,
+.leaflet-pane > svg path.leaflet-interactive,
+svg.leaflet-image-layer.leaflet-interactive path {
+	pointer-events: visiblePainted; 
+	pointer-events: auto;
+	}
+
+
+
+.leaflet-container {
+	background: #ddd;
+	outline-offset: 1px;
+	}
+.leaflet-container a {
+	color: #0078A8;
+	}
+.leaflet-zoom-box {
+	border: 2px dotted #38f;
+	background: rgba(255,255,255,0.5);
+	}
+
+
+
+.leaflet-container {
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-size: 0.75rem;
+	line-height: 1.5;
+	}
+
+
+
+
+.leaflet-bar {
+	box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+	border-radius: 4px;
+	}
+.leaflet-bar a {
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	width: 26px;
+	height: 26px;
+	line-height: 26px;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	}
+.leaflet-bar a,
+.leaflet-control-layers-toggle {
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	display: block;
+	}
+.leaflet-bar a:hover,
+.leaflet-bar a:focus {
+	background-color: #f4f4f4;
+	}
+.leaflet-bar a:first-child {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	}
+.leaflet-bar a:last-child {
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	border-bottom: none;
+	}
+.leaflet-bar a.leaflet-disabled {
+	cursor: default;
+	background-color: #f4f4f4;
+	color: #bbb;
+	}
+
+.leaflet-touch .leaflet-bar a {
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	}
+.leaflet-touch .leaflet-bar a:first-child {
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	}
+.leaflet-touch .leaflet-bar a:last-child {
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	}
+
+
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+	font: bold 18px 'Lucida Console', Monaco, monospace;
+	text-indent: 1px;
+	}
+
+.leaflet-touch .leaflet-control-zoom-in, .leaflet-touch .leaflet-control-zoom-out  {
+	font-size: 22px;
+	}
+
+
+
+
+.leaflet-control-layers {
+	box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+	background: #fff;
+	border-radius: 5px;
+	}
+.leaflet-control-layers-toggle {
+	background-image: url(images/layers.png);
+	width: 36px;
+	height: 36px;
+	}
+.leaflet-retina .leaflet-control-layers-toggle {
+	background-image: url(images/layers-2x.png);
+	background-size: 26px 26px;
+	}
+.leaflet-touch .leaflet-control-layers-toggle {
+	width: 44px;
+	height: 44px;
+	}
+.leaflet-control-layers .leaflet-control-layers-list,
+.leaflet-control-layers-expanded .leaflet-control-layers-toggle {
+	display: none;
+	}
+.leaflet-control-layers-expanded .leaflet-control-layers-list {
+	display: block;
+	position: relative;
+	}
+.leaflet-control-layers-expanded {
+	padding: 6px 10px 6px 6px;
+	color: #333;
+	background: #fff;
+	}
+.leaflet-control-layers-scrollbar {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding-right: 5px;
+	}
+.leaflet-control-layers-selector {
+	margin-top: 2px;
+	position: relative;
+	top: 1px;
+	}
+.leaflet-control-layers label {
+	display: block;
+	font-size: 13px;
+	font-size: 1.08333em;
+	}
+.leaflet-control-layers-separator {
+	height: 0;
+	border-top: 1px solid #ddd;
+	margin: 5px -10px 5px -6px;
+	}
+
+
+.leaflet-default-icon-path { 
+	background-image: url(images/marker-icon.png);
+	}
+
+
+
+
+.leaflet-container .leaflet-control-attribution {
+	background: #fff;
+	background: rgba(255, 255, 255, 0.8);
+	margin: 0;
+	}
+.leaflet-control-attribution,
+.leaflet-control-scale-line {
+	padding: 0 5px;
+	color: #333;
+	line-height: 1.4;
+	}
+.leaflet-control-attribution a {
+	text-decoration: none;
+	}
+.leaflet-control-attribution a:hover,
+.leaflet-control-attribution a:focus {
+	text-decoration: underline;
+	}
+.leaflet-attribution-flag {
+	display: inline !important;
+	vertical-align: baseline !important;
+	width: 1em;
+	height: 0.6669em;
+	}
+.leaflet-left .leaflet-control-scale {
+	margin-left: 5px;
+	}
+.leaflet-bottom .leaflet-control-scale {
+	margin-bottom: 5px;
+	}
+.leaflet-control-scale-line {
+	border: 2px solid #777;
+	border-top: none;
+	line-height: 1.1;
+	padding: 2px 5px 1px;
+	white-space: nowrap;
+	-moz-box-sizing: border-box;
+	     box-sizing: border-box;
+	background: rgba(255, 255, 255, 0.8);
+	text-shadow: 1px 1px #fff;
+	}
+.leaflet-control-scale-line:not(:first-child) {
+	border-top: 2px solid #777;
+	border-bottom: none;
+	margin-top: -2px;
+	}
+.leaflet-control-scale-line:not(:first-child):not(:last-child) {
+	border-bottom: 2px solid #777;
+	}
+
+.leaflet-touch .leaflet-control-attribution,
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+	box-shadow: none;
+	}
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+	border: 2px solid rgba(0,0,0,0.2);
+	background-clip: padding-box;
+	}
+
+
+
+
+.leaflet-popup {
+	position: absolute;
+	text-align: center;
+	margin-bottom: 20px;
+	}
+.leaflet-popup-content-wrapper {
+	padding: 1px;
+	text-align: left;
+	border-radius: 12px;
+	}
+.leaflet-popup-content {
+	margin: 13px 24px 13px 20px;
+	line-height: 1.3;
+	font-size: 13px;
+	font-size: 1.08333em;
+	min-height: 1px;
+	}
+.leaflet-popup-content p {
+	margin: 17px 0;
+	margin: 1.3em 0;
+	}
+.leaflet-popup-tip-container {
+	width: 40px;
+	height: 20px;
+	position: absolute;
+	left: 50%;
+	margin-top: -1px;
+	margin-left: -20px;
+	overflow: hidden;
+	pointer-events: none;
+	}
+.leaflet-popup-tip {
+	width: 17px;
+	height: 17px;
+	padding: 1px;
+
+	margin: -10px auto 0;
+	pointer-events: auto;
+
+	-webkit-transform: rotate(45deg);
+	   -moz-transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	        transform: rotate(45deg);
+	}
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+	background: white;
+	color: #333;
+	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+	}
+.leaflet-container a.leaflet-popup-close-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: none;
+	text-align: center;
+	width: 24px;
+	height: 24px;
+	font: 16px/24px Tahoma, Verdana, sans-serif;
+	color: #757575;
+	text-decoration: none;
+	background: transparent;
+	}
+.leaflet-container a.leaflet-popup-close-button:hover,
+.leaflet-container a.leaflet-popup-close-button:focus {
+	color: #585858;
+	}
+.leaflet-popup-scrolled {
+	overflow: auto;
+	}
+
+.leaflet-oldie .leaflet-popup-content-wrapper {
+	-ms-zoom: 1;
+	}
+.leaflet-oldie .leaflet-popup-tip {
+	width: 24px;
+	margin: 0 auto;
+
+	-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)";
+	filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678);
+	}
+
+.leaflet-oldie .leaflet-control-zoom,
+.leaflet-oldie .leaflet-control-layers,
+.leaflet-oldie .leaflet-popup-content-wrapper,
+.leaflet-oldie .leaflet-popup-tip {
+	border: 1px solid #999;
+	}
+
+
+
+
+.leaflet-div-icon {
+	background: #fff;
+	border: 1px solid #666;
+	}
+
+
+
+
+.leaflet-tooltip {
+	position: absolute;
+	padding: 6px;
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 3px;
+	color: #222;
+	white-space: nowrap;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	pointer-events: none;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+	}
+.leaflet-tooltip.leaflet-interactive {
+	cursor: pointer;
+	pointer-events: auto;
+	}
+.leaflet-tooltip-top:before,
+.leaflet-tooltip-bottom:before,
+.leaflet-tooltip-left:before,
+.leaflet-tooltip-right:before {
+	position: absolute;
+	pointer-events: none;
+	border: 6px solid transparent;
+	background: transparent;
+	content: "";
+	}
+
+
+
+.leaflet-tooltip-bottom {
+	margin-top: 6px;
+}
+.leaflet-tooltip-top {
+	margin-top: -6px;
+}
+.leaflet-tooltip-bottom:before,
+.leaflet-tooltip-top:before {
+	left: 50%;
+	margin-left: -6px;
+	}
+.leaflet-tooltip-top:before {
+	bottom: 0;
+	margin-bottom: -12px;
+	border-top-color: #fff;
+	}
+.leaflet-tooltip-bottom:before {
+	top: 0;
+	margin-top: -12px;
+	margin-left: -6px;
+	border-bottom-color: #fff;
+	}
+.leaflet-tooltip-left {
+	margin-left: -6px;
+}
+.leaflet-tooltip-right {
+	margin-left: 6px;
+}
+.leaflet-tooltip-left:before,
+.leaflet-tooltip-right:before {
+	top: 50%;
+	margin-top: -6px;
+	}
+.leaflet-tooltip-left:before {
+	right: 0;
+	margin-right: -12px;
+	border-left-color: #fff;
+	}
+.leaflet-tooltip-right:before {
+	left: 0;
+	margin-left: -12px;
+	border-right-color: #fff;
+	}
+
+
+
+@media print {
+	
+	.leaflet-control {
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+		}
+	}
+
+</style>
+<style>
+:root{
+  --bg:#F2EEE7; --surface:#FBF9F5; --raised:#FFFFFF;
+  --ink:#221E1A; --ink-2:#554E46; --muted:#857D73;
+  --line:#E2DBD0; --line-2:#D2C9BB;
+  --basalt:#2E2C2A; --on-basalt:#F6F2EB;
+  --ochre:#A8691A; --focus:#2F6FD0;
+  --map-bg:#ECE7DE; --label:#5E554B; --label-halo:rgba(236,231,222,.92); --landmark:#8A7F72;
+  --pin-ring:#FFFFFF; --shadow:0 1px 2px rgba(40,30,20,.12),0 6px 18px rgba(40,30,20,.10);
+  --c-trattoria:#B03A2E; --c-gelato:#2F6FD0; --c-market:#138A5E; --c-quick:#7B55C8;
+  --c-pizzeria:#D06A12; --c-sweets:#C8418A; --c-teglia:#8F7A0A;
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141312; --surface:#1A1917; --raised:#23211F;
+  --ink:#EFEAE2; --ink-2:#C4BCB1; --muted:#8F877D;
+  --line:#2E2B28; --line-2:#3A3632;
+  --basalt:#E9E3D9; --on-basalt:#1A1917;
+  --ochre:#D9A05A; --focus:#7AA7F0;
+  --map-bg:#1B1A18; --label:#B5AC9F; --label-halo:rgba(27,26,24,.9); --landmark:#8A8176;
+  --pin-ring:#1B1A18; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 22px rgba(0,0,0,.35);
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#141312; --surface:#1A1917; --raised:#23211F;
+  --ink:#EFEAE2; --ink-2:#C4BCB1; --muted:#8F877D;
+  --line:#2E2B28; --line-2:#3A3632;
+  --basalt:#E9E3D9; --on-basalt:#1A1917;
+  --ochre:#D9A05A; --focus:#7AA7F0;
+  --map-bg:#1B1A18; --label:#B5AC9F; --label-halo:rgba(27,26,24,.9); --landmark:#8A8176;
+  --pin-ring:#1B1A18; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 22px rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 var(--body);-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.app{display:grid;grid-template-columns:minmax(340px,410px) 1fr;height:100%}
+.side{display:flex;flex-direction:column;min-height:0;background:var(--surface);border-right:1px solid var(--line)}
+.head{padding:22px 22px 14px;display:grid;gap:6px}
+.eyebrow{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{font-family:var(--display);font-weight:700;font-size:34px;line-height:1.02;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h1 em{font-style:italic;font-weight:500;color:var(--ochre)}
+.src{margin:2px 0 0;color:var(--ink-2);font-size:13.5px;max-width:60ch}
+.src a{color:inherit;text-decoration-color:var(--line-2);text-underline-offset:2px}
+.tally{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tally b{color:var(--ink);font-weight:600}
+.controls{padding:4px 22px 14px;display:grid;gap:10px;border-bottom:1px solid var(--line)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line-2);background:transparent;border-radius:999px;padding:4px 10px 4px 5px;font-size:13px;cursor:pointer;color:var(--ink-2);transition:background .15s,border-color .15s,opacity .15s}
+.chip .dot{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;flex:none}
+.chip .dot svg{width:12px;height:12px}
+.chip .n{font-variant-numeric:tabular-nums;color:var(--muted);font-size:12px}
+.chip[aria-pressed="true"]{background:var(--raised);border-color:var(--line-2);color:var(--ink)}
+.chip[aria-pressed="false"]{opacity:.5}
+.chip[aria-pressed="false"] .dot{filter:grayscale(1)}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.field{flex:1 1 150px;min-width:0;position:relative}
+.field input,.field select{width:100%;height:36px;border:1px solid var(--line-2);border-radius:8px;background:var(--raised);padding:0 10px;font-size:14px}
+.field input{padding-left:32px}
+.field svg{position:absolute;left:10px;top:11px;width:14px;height:14px;color:var(--muted);pointer-events:none}
+.seg{display:inline-flex;border:1px solid var(--line-2);border-radius:8px;overflow:hidden;background:var(--raised);height:32px}
+.seg button{border:0;background:transparent;padding:0 11px;font-size:13px;cursor:pointer;color:var(--ink-2);display:inline-flex;align-items:center;gap:5px;font-variant-numeric:tabular-nums}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--basalt);color:var(--on-basalt)}
+.subrow{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.lbl{font-size:12px;color:var(--muted)}
+.list{overflow:auto;min-height:0;flex:1;padding:4px 0 24px}
+.group h2{position:sticky;top:0;z-index:2;margin:0;padding:14px 22px 6px;background:var(--surface);font-family:var(--display);font-weight:500;font-style:italic;font-size:19px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.group h2 span{font-family:var(--body);font-style:normal;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.item{display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:start;padding:9px 22px;cursor:pointer;border-left:3px solid transparent}
+.item{scroll-margin-top:52px}
+.item:hover{background:var(--raised)}
+.item.sel{background:var(--raised);border-left-color:var(--ink)}
+.item .pinmini{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;margin-top:1px}
+.item .pinmini svg{width:14px;height:14px}
+.item .nm{font-weight:600;font-size:15px;line-height:1.3}
+.item .nm small{font-weight:400;color:var(--ink-2)}
+.item .meta{font-size:13px;color:var(--ink-2);line-height:1.35}
+.item .meta .h{color:var(--muted)}
+.marks{display:flex;gap:2px}
+.mk{width:30px;height:30px;border-radius:8px;border:0;background:transparent;display:grid;place-items:center;cursor:pointer;color:var(--muted)}
+.mk:hover{background:var(--bg)}
+.mk svg{width:17px;height:17px}
+.mk.want[aria-pressed="true"]{color:var(--ochre)}
+.mk.been[aria-pressed="true"]{color:var(--c-market)}
+.empty{padding:28px 22px;color:var(--ink-2)}
+.empty button{border:1px solid var(--line-2);background:var(--raised);border-radius:8px;padding:6px 12px;cursor:pointer;margin-top:8px}
+details.notes{border-top:1px solid var(--line);padding:12px 22px 16px}
+details.notes summary{cursor:pointer;font-weight:600;font-size:13.5px;color:var(--ink-2)}
+details.notes ul{margin:10px 0 0;padding-left:18px;display:grid;gap:8px;font-size:13.5px;color:var(--ink-2);max-width:60ch}
+details.notes .credit{margin:12px 0 0;font-size:11.5px;color:var(--muted)}
+.mapwrap{position:relative;min-height:0}
+#map{position:absolute;inset:0;background:var(--map-bg)}
+.leaflet-container{background:var(--map-bg);font-family:var(--body)}
+.leaflet-control-attribution{background:color-mix(in srgb,var(--surface) 85%,transparent)!important;color:var(--muted)!important;font-size:10.5px}
+.leaflet-control-attribution a{color:var(--ink-2)!important}
+.leaflet-bar a{background:var(--surface)!important;color:var(--ink)!important;border-bottom-color:var(--line)!important}
+.leaflet-bar{border:1px solid var(--line-2)!important;box-shadow:var(--shadow)!important}
+.pin{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--pin-ring);box-shadow:0 1px 3px rgba(0,0,0,.35);transition:transform .15s}
+.pin svg{width:15px;height:15px}
+.pin.want::after{content:"";position:absolute;right:-3px;top:-3px;width:9px;height:9px;border-radius:50%;background:var(--ochre);border:2px solid var(--pin-ring)}
+.pin.been{opacity:.55}
+.pin.sel{transform:scale(1.3);box-shadow:0 0 0 3px var(--ink),0 3px 10px rgba(0,0,0,.35)}
+.z-lo .pin{transform:scale(.62)}
+.z-lo .pin.sel{transform:scale(1.05)}
+.z-mid .pin{transform:scale(.82)}
+.z-mid .pin.sel{transform:scale(1.2)}
+.lab{white-space:nowrap;pointer-events:none;transform:translate(-50%,-50%);width:max-content;text-shadow:0 0 3px var(--label-halo),0 0 3px var(--label-halo),0 0 6px var(--label-halo)}
+.lab.hood{font-family:var(--display);font-style:italic;font-weight:500;font-size:15px;color:var(--label)}
+.lab.hood.t2{font-size:13.5px}
+.lab.mark{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--landmark);font-weight:600}
+.lab.river{font-family:var(--display);font-style:italic;font-size:14px;letter-spacing:.3em;color:#5E8F88}
+.z-lo .lab.t2,.z-lo .lab.mark,.z-mid .lab.mark{display:none}
+.z-hi .lab.hood{font-size:17px}
+.leaflet-popup-content-wrapper{background:var(--surface);color:var(--ink);border-radius:12px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.leaflet-popup-tip{background:var(--surface);border:1px solid var(--line)}
+.leaflet-popup-content{margin:14px 16px 14px;width:min(290px,72vw)!important;font-size:14px;line-height:1.45}
+.leaflet-container a.leaflet-popup-close-button{color:var(--muted);top:6px;right:6px}
+.pop .cat{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--ink-2)}
+.pop .cat i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.pop h3{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.1;margin:6px 0 2px}
+.pop h3 small{display:block;font-family:var(--body);font-weight:500;font-size:13px;color:var(--ink-2);margin-top:3px}
+.pop .style{color:var(--ink-2);font-size:13.5px}
+.pop .addr{margin:8px 0 0;font-size:13px;color:var(--ink-2);user-select:text}
+.pop p.bl{margin:8px 0 0}
+.pop .guide{margin:10px 0 0;padding:8px 10px;border-radius:8px;background:var(--bg);font-size:13px;color:var(--ink-2)}
+.pop .guide b{display:block;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.pop .acts{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+.pop .acts a,.pop .acts button{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 11px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;text-decoration:none;border:1px solid var(--line-2);background:var(--raised);color:var(--ink)}
+.pop .acts a.go{background:var(--basalt);border-color:var(--basalt);color:var(--on-basalt)}
+.pop .acts svg{width:15px;height:15px}
+.pop .acts button.want[aria-pressed="true"]{color:var(--ochre);border-color:currentColor}
+.pop .acts button.been[aria-pressed="true"]{color:var(--c-market);border-color:currentColor}
+.mobtoggle{display:none}
+@media (max-width:820px){
+  .app{display:flex;flex-direction:column;height:auto;min-height:100%}
+  .side{display:contents}
+  .head{order:1;padding:18px 16px 10px;background:var(--surface)}
+  h1{font-size:29px}
+  .controls{order:2;padding:4px 16px 12px;background:var(--surface)}
+  .chips{flex-wrap:nowrap;overflow-x:auto;margin:0 -16px;padding:0 16px 2px;scrollbar-width:none}
+  .chip{flex:none}
+  .mapwrap{order:3;height:62vh;height:62svh;position:sticky;top:env(safe-area-inset-top,0px);z-index:1}
+  .list{order:4;overflow:visible;background:var(--surface);position:relative;z-index:2;border-top:1px solid var(--line)}
+  .group h2,.item,.empty{padding-left:16px;padding-right:16px}
+  details.notes{order:5;background:var(--surface);padding-left:16px;padding-right:16px;position:relative;z-index:2}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="app">
+  <aside class="side">
+    <header class="head">
+      <div class="eyebrow">Rome · <span id="total">76</span> places</div>
+      <h1>Mangiare <em>a</em> Roma</h1>
+      <p class="src">Every trattoria, pizzeria, bakery, gelateria and market in <a href="https://katieparla.com/" target="_blank" rel="noopener">The Katie Parla Guide to Eating Well in Rome</a> (2026), pinned by street address. An unofficial companion map.</p>
+      <div class="tally" aria-live="polite"><span><b id="t-show">76</b> shown</span><span><b id="t-want">0</b> want to go</span><span><b id="t-been">0</b> been</span></div>
+    </header>
+    <div class="controls">
+      <div class="chips" id="chips" role="group" aria-label="Filter by style"></div>
+      <div class="row">
+        <label class="field"><span class="sr" hidden>Search</span>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="7" cy="7" r="5"/><path d="m11 11 3.5 3.5"/></svg>
+          <input id="q" type="search" placeholder="Search" autocomplete="off" aria-label="Search places">
+        </label>
+        <label class="field" style="flex:0 1 190px"><select id="hood" aria-label="Neighborhood"><option value="">All neighborhoods</option></select></label>
+      </div>
+      <div class="subrow">
+        <div class="seg" role="group" aria-label="Show">
+          <button type="button" data-show="all" aria-pressed="true">All</button>
+          <button type="button" data-show="want" aria-pressed="false">Want to go</button>
+          <button type="button" data-show="todo" aria-pressed="false">Not been</button>
+          <button type="button" data-show="been" aria-pressed="false">Been</button>
+        </div>
+        <div class="seg" role="group" aria-label="Group list by">
+          <button type="button" data-group="hood" aria-pressed="true">By area</button>
+          <button type="button" data-group="cat" aria-pressed="false">By style</button>
+        </div>
+      </div>
+    </div>
+    <div class="list" id="list"></div>
+    <details class="notes">
+      <summary>How Romans eat: notes from the guide</summary>
+      <ul>
+        <li>At a trattoria you don't need every course, but order two or three per person (an antipasto, a secondo and a contorno, or a primo then a secondo) so the kitchen isn't firing single plates.</li>
+        <li>Pizza tonda is thin, crisp and chewy with barely any rim. Forni sell pizza bianca and rossa by weight; try bianca stuffed with mortadella.</li>
+        <li>Street food is eaten standing, leaning or perched for a minute before moving on.</li>
+        <li>At markets, say "buongiorno" when you walk up and "grazie, arrivederci" when you leave. Ask "posso?" before touching produce, and use one bag per product.</li>
+        <li>Gelato has less air and less fat than ice cream and is served slightly warmer. Look for seasonal fruit sorbetti.</li>
+      </ul>
+      <p class="credit">Addresses from web research; coordinates from Italy's civic-number register via Overture Maps. Basemap © OpenStreetMap contributors, Overture Maps Foundation. Your want-to-go and been marks are saved only in this browser.</p>
+    </details>
+  </aside>
+  <div class="mapwrap"><div id="map" role="region" aria-label="Map of places"></div></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script>
+const PLACES = [{"id":1,"name":"Armando al Pantheon","branch":null,"cat":"trattoria","style":"Roman trattoria","hood":"Centro Storico","address":"Salita de' Crescenzi 31, Roma","lat":41.89906,"lng":12.476209,"blurb":"Family-run trattoria a few steps from the Pantheon.","guide":"The Gargioli family has served Roman classics here since 1961: fettuccine with chicken innards, slow-cooked tripe, braised artichokes, and puntarelle with anchovy dressing."},{"id":2,"name":"Cesare al Pellegrino","branch":null,"cat":"trattoria","style":"Roman trattoria","hood":"Centro Storico","address":"Via del Pellegrino 117, Roma","lat":41.897284,"lng":12.468648,"blurb":"Centro sibling of Cesare al Casaletto, between Campo de' Fiori and Via Giulia.","guide":null},{"id":3,"name":"Cesare al Casaletto","branch":null,"cat":"trattoria","style":"Roman trattoria","hood":"Gianicolense","address":"Via del Casaletto 45, Roma","lat":41.876909,"lng":12.44077,"blurb":"Neighborhood trattoria at the end of the 8 tram line, known for fritti and pasta.","guide":"New ownership brought refined technique while keeping the neighborhood spirit: food that feels traditional, executed with more precision."},{"id":4,"name":"Osteria Bonelli","branch":null,"cat":"trattoria","style":"Osteria","hood":"Tor Pignattara","address":"Viale dell'Acquedotto Alessandrino 172, Roma","lat":41.876137,"lng":12.54723,"blurb":"Busy, inexpensive neighborhood osteria with a daily chalkboard menu.","guide":null},{"id":5,"name":"Tavernaccia da Bruno","branch":null,"cat":"trattoria","style":"Roman-Umbrian trattoria","hood":"Porta Portese","address":"Via Giovanni da Castel Bolognese 63, Roma","lat":41.874079,"lng":12.468615,"blurb":"Family trattoria with Roman and Umbrian dishes and roasts from the wood oven.","guide":null},{"id":6,"name":"Piatto Romano","branch":null,"cat":"trattoria","style":"Roman trattoria","hood":"Testaccio","address":"Via Giovanni Battista Bodoni 62, Roma","lat":41.879349,"lng":12.475812,"blurb":"Testaccio trattoria for Roman classics and heirloom local vegetables.","guide":null},{"id":7,"name":"Hosteria Grappolo d'Oro","branch":null,"cat":"trattoria","style":"Hosteria","hood":"Centro Storico","address":"Piazza della Cancelleria 80, Roma","lat":41.896283,"lng":12.472321,"blurb":"Roman pastas, meatballs and seasonal sides near Campo de' Fiori.","guide":null},{"id":8,"name":"Trecca","branch":null,"cat":"trattoria","style":"Modern trattoria","hood":"San Paolo","address":"Via Alessandro Severo 222, Roma","lat":41.853435,"lng":12.486766,"blurb":"'Cucina di mercato' trattoria with a focus on quinto quarto and Roman classics.","guide":null},{"id":9,"name":"Ai Marmi","branch":null,"cat":"pizzeria","style":"Roman thin-crust pizzeria","hood":"Trastevere","address":"Viale di Trastevere 53, Roma","lat":41.888272,"lng":12.473725,"blurb":"Also called Panattoni: marble tables, ultra-thin Roman pizza, supplì and baccalà.","guide":null},{"id":10,"name":"A Rota","branch":null,"cat":"pizzeria","style":"Roman thin-crust pizzeria","hood":"Tor Pignattara","address":"Via di Tor Pignattara 190, Roma","lat":41.874908,"lng":12.541146,"blurb":"'Pizzeria romanesca' for crisp, thin Roman pizza and fritti.","guide":null},{"id":11,"name":"La Gatta Mangiona","branch":null,"cat":"pizzeria","style":"Pizzeria","hood":"Monteverde","address":"Via Federico Ozanam 30, Roma","lat":41.875734,"lng":12.44768,"blurb":"Long-running Monteverde pizzeria with creative monthly pies and deep wine and beer lists.","guide":null},{"id":12,"name":"L'Elementare","branch":"Trastevere","cat":"pizzeria","style":"Roman thin-crust pizzeria","hood":"Trastevere","address":"Via Benedetta 23, Roma","lat":41.891794,"lng":12.469029,"blurb":"Thin, crisp 'scrocchiarella' Roman pizza and creative supplì.","guide":null},{"id":13,"name":"L'Elementare","branch":"Ponte Testaccio","cat":"pizzeria","style":"Roman thin-crust pizzeria","hood":"Testaccio","address":"Via degli Stradivari 27, Roma","lat":41.87464,"lng":12.46901,"blurb":"Two-floor branch just across Ponte Testaccio.","guide":null},{"id":14,"name":"L'Elementare","branch":"Tuscolano","cat":"pizzeria","style":"Roman thin-crust pizzeria","hood":"Tuscolano","address":"Via Licinio Stolone 92, Roma","lat":41.856185,"lng":12.566725,"blurb":"Tuscolano branch of the thin-crust pizza group.","guide":null},{"id":15,"name":"L'Elementare","branch":"San Giovanni","cat":"pizzeria","style":"Roman thin-crust pizzeria","hood":"San Giovanni","address":"Via Gallia 83, Roma","lat":41.880868,"lng":12.505405,"blurb":"San Giovanni outpost; mainly takeaway and delivery.","guide":null},{"id":16,"name":"L'Elementare","branch":"Casal Bertone","cat":"pizzeria","style":"Roman thin-crust pizzeria","hood":"Casal Bertone","address":"Piazza di Santa Maria Consolatrice 1, Roma","lat":41.898049,"lng":12.535057,"blurb":"Newest branch, opened September 2026.","guide":null},{"id":17,"name":"I Quintili","branch":"Furio Camillo","cat":"pizzeria","style":"Contemporary Neapolitan-style pizzeria","hood":"Tuscolano","address":"Via Eurialo 7, Roma","lat":41.874954,"lng":12.524589,"blurb":"Contemporary Neapolitan-style pizza with Roman touches.","guide":null},{"id":18,"name":"I Quintili","branch":"EUR / Montagnola","cat":"pizzeria","style":"Contemporary Neapolitan-style pizzeria","hood":"EUR","address":"Via Francesco Cangiullo 16, Roma","lat":41.843564,"lng":12.487609,"blurb":"Larger branch with plenty of outdoor seating.","guide":null},{"id":19,"name":"Piccolo Buco","branch":null,"cat":"pizzeria","style":"Neapolitan-style pizzeria","hood":"Centro Storico","address":"Via del Lavatore 91, Roma","lat":41.9013,"lng":12.484645,"blurb":"Tiny pizzeria near the Trevi Fountain known for airy crusts and top Italian ingredients.","guide":null},{"id":20,"name":"VICO Pizza & Wine","branch":null,"cat":"pizzeria","style":"Neapolitan-style pizzeria","hood":"Centro Storico","address":"Piazza Rondanini 47, Roma","lat":41.899758,"lng":12.475922,"blurb":"Neapolitan pizza and a serious wine list, near the Pantheon.","guide":null},{"id":21,"name":"Frumentario","branch":null,"cat":"teglia","style":"Pizza al taglio","hood":"Re di Roma","address":"Via Tuscolana 26, Roma","lat":41.882788,"lng":12.514692,"blurb":"Pizza in teglia with toppings finished at the counter.","guide":null},{"id":22,"name":"Lievito","branch":null,"cat":"teglia","style":"Bakery & pizza al taglio","hood":"EUR","address":"Viale Europa 339, Roma","lat":41.829743,"lng":12.473804,"blurb":"Francesco Arnesano's sourdough teglia, breads and supplì.","guide":null},{"id":23,"name":"Nonnarè","branch":null,"cat":"teglia","style":"Pizza al taglio","hood":"Garbatella","address":"Piazza Augusto Albini 10, Roma","lat":41.864774,"lng":12.484997,"blurb":"Neighborhood slice shop for thin, crisp Roman teglia.","guide":null},{"id":24,"name":"Pizzarium","branch":null,"cat":"teglia","style":"Pizza al taglio","hood":"Cipro","address":"Via della Meloria 43, Roma","lat":41.906708,"lng":12.446584,"blurb":"Gabriele Bonci's slice shop near the Cipro metro stop.","guide":"The guide credits Bonci with elevating pizza in teglia: long-fermented doughs from stone-milled grains, topped with highly seasonal ingredients."},{"id":25,"name":"Pantera","branch":null,"cat":"teglia","style":"Pizza al taglio","hood":"Garbatella","address":"Circonvallazione Ostiense 153, Roma","lat":41.867512,"lng":12.485962,"blurb":"Tiny slice shop from the Trecca team, prized for a thin, crunchy base.","guide":null},{"id":26,"name":"Ruver Teglia Frazionata","branch":null,"cat":"teglia","style":"Pizza al taglio","hood":"Aventino","address":"Viale Aventino 46, Roma","lat":41.882607,"lng":12.48641,"blurb":"Small shop selling pre-portioned teglia by the piece.","guide":null},{"id":27,"name":"Amerina","branch":null,"cat":"quick","style":"Pizzette al padellino","hood":"Centro Storico","address":"Largo dei Librari 82, Roma","lat":41.894771,"lng":12.47361,"blurb":"Small pan-baked pizzette, steps from Campo de' Fiori.","guide":null},{"id":28,"name":"Mordi e Vai","branch":null,"cat":"quick","style":"Sandwich stall","hood":"Testaccio","address":"Via Beniamino Franklin 12, Roma","lat":41.87741,"lng":12.473384,"blurb":"Box 15 in the Testaccio Market: panini filled with Roman braises and offal.","guide":"Founded by butcher Sergio Esposito and now run by his son. Ciabatta is filled with braised meats and traditional Roman recipes originally developed for family meals."},{"id":29,"name":"C'è Pasta e Pasta","branch":null,"cat":"quick","style":"Fresh pasta & kosher tavola calda","hood":"Trastevere","address":"Via Ettore Rolli 29, Roma","lat":41.874164,"lng":12.467777,"blurb":"Kosher fresh-pasta shop and canteen for Roman-Jewish dishes, near Trastevere station.","guide":null},{"id":30,"name":"Trapizzino","branch":"Testaccio","cat":"quick","style":"Trapizzino","hood":"Testaccio","address":"Via Giovanni Branca 88, Roma","lat":41.87962,"lng":12.473693,"blurb":"The original shop: pizza pockets stuffed with Roman stews, plus supplì.","guide":null},{"id":31,"name":"Trapizzino","branch":"Trastevere","cat":"quick","style":"Trapizzino & wine bar","hood":"Trastevere","address":"Piazza Trilussa 46, Roma","lat":41.891471,"lng":12.469948,"blurb":"Sit-down Trapizzino with a wine list, by Ponte Sisto.","guide":null},{"id":32,"name":"Trapizzino","branch":"Ponte Milvio","cat":"quick","style":"Trapizzino","hood":"Ponte Milvio","address":"Piazzale di Ponte Milvio 13, Roma","lat":41.937252,"lng":12.465689,"blurb":"Trapizzini and supplì with sidewalk seating, open late.","guide":null},{"id":33,"name":"Trapizzino","branch":"Prati","cat":"quick","style":"Trapizzino counter","hood":"Prati","address":"Piazza del Risorgimento 7, Roma","lat":41.90666,"lng":12.4566,"blurb":"Counter inside the Be.Re. craft-beer bar, near the Vatican.","guide":null},{"id":34,"name":"Trapizzino","branch":"Esquilino","cat":"quick","style":"Trapizzino (food hall)","hood":"Esquilino","address":"Via Giovanni Giolitti 36, Roma","lat":41.898684,"lng":12.503667,"blurb":"Stall in the Mercato Centrale food hall at Termini.","guide":null},{"id":35,"name":"Da Corrado","branch":null,"cat":"quick","style":"Market counter & natural wine","hood":"Testaccio","address":"Via Aldo Manuzio 66, Roma","lat":41.877662,"lng":12.473327,"blurb":"Box 18 in the Testaccio Market: a few stools, regional dishes and natural wine.","guide":null},{"id":36,"name":"Supplizio","branch":null,"cat":"quick","style":"Supplì shop","hood":"Centro Storico","address":"Via dei Banchi Vecchi 143, Roma","lat":41.897473,"lng":12.467893,"blurb":"Supplì and other Roman fried snacks.","guide":null},{"id":37,"name":"Becco","branch":null,"cat":"quick","style":"Tramezzini","hood":"Trionfale","address":"Piazzale degli Eroi 7, Roma","lat":41.908847,"lng":12.44926,"blurb":"Takeaway tramezzini with house pickles and ferments.","guide":null},{"id":38,"name":"Andreotti","branch":null,"cat":"sweets","style":"Pasticceria","hood":"Ostiense","address":"Via Ostiense 54, Roma","lat":41.871699,"lng":12.479807,"blurb":"Historic family pastry shop: maritozzi, crostate and holiday sweets.","guide":null},{"id":39,"name":"Barnum","branch":null,"cat":"sweets","style":"Café & pastry","hood":"Centro Storico","address":"Via del Pellegrino 63, Roma","lat":41.896756,"lng":12.470643,"blurb":"Specialty coffee, laminated pastries and brunch. Moved to this address in 2026.","guide":null},{"id":40,"name":"Casa Manfredi Teatro","branch":null,"cat":"sweets","style":"Pasticceria & café","hood":"Ostiense","address":"Via dei Conciatori 5, Roma","lat":41.874428,"lng":12.479142,"blurb":"Pastry lab and café in a former theatre: croissants, maritozzi, cakes.","guide":null},{"id":41,"name":"Gastromario","branch":null,"cat":"sweets","style":"Pastry, bakery & bistro","hood":"San Giovanni","address":"Via Voghera 10, Roma","lat":41.885965,"lng":12.519008,"blurb":"Pastries and viennoiserie plus fresh pasta and bistro cooking.","guide":null},{"id":42,"name":"Gruè","branch":null,"cat":"sweets","style":"Pasticceria","hood":"Nomentano","address":"Viale Regina Margherita 95, Roma","lat":41.917381,"lng":12.501354,"blurb":"Modern pastry shop: cakes, mignon, lievitati and gelato.","guide":null},{"id":43,"name":"Slow","branch":null,"cat":"sweets","style":"Specialty coffee & pastry","hood":"Centro Storico","address":"Corso Vittorio Emanuele II 73, Roma","lat":41.896396,"lng":12.476049,"blurb":"Specialty coffee and pastry lab near Largo Argentina.","guide":null},{"id":44,"name":"Luna","branch":null,"cat":"sweets","style":"Café & bakery","hood":"Centro Storico","address":"Via delle Quattro Fontane 175, Roma","lat":41.903165,"lng":12.488469,"blurb":"Specialty café-bakery from the Faro team, uphill from Piazza Barberini.","guide":null},{"id":45,"name":"Nero Vaniglia","branch":null,"cat":"sweets","style":"Pasticceria & gelateria","hood":"Garbatella","address":"Circonvallazione Ostiense 201, Roma","lat":41.867449,"lng":12.489931,"blurb":"Neighborhood pastry shop for breakfast pastries, cakes and gelato.","guide":null},{"id":46,"name":"Roscioli Caffè","branch":null,"cat":"sweets","style":"Café & pastry","hood":"Centro Storico","address":"Piazza Benedetto Cairoli 16, Roma","lat":41.89419,"lng":12.474432,"blurb":"The Roscioli family's café: maritozzi, cornetti and espresso.","guide":null},{"id":47,"name":"SAID dal 1923","branch":null,"cat":"sweets","style":"Chocolatier","hood":"San Lorenzo","address":"Via Tiburtina 135, Roma","lat":41.899033,"lng":12.515303,"blurb":"Historic chocolate factory with a shop, café and bistro.","guide":null},{"id":48,"name":"Boccione","branch":null,"cat":"sweets","style":"Jewish bakery","hood":"Ghetto","address":"Via del Portico d'Ottavia 1, Roma","lat":41.89323,"lng":12.476902,"blurb":"Historic kosher bakery: pizza ebraica and ricotta and sour-cherry tart.","guide":null},{"id":49,"name":"Al Settimo Gelo","branch":null,"cat":"gelato","style":"Gelateria","hood":"Prati","address":"Via Vodice 21, Roma","lat":41.918103,"lng":12.46135,"blurb":"Natural gelato, strong on seasonal fruit and unusual flavors.","guide":null},{"id":50,"name":"Fatamorgana","branch":"Centro Storico","cat":"gelato","style":"Gelateria","hood":"Centro Storico","address":"Via dei Chiavari 37, Roma","lat":41.894721,"lng":12.474271,"blurb":"Gluten-free artisan gelato with inventive flavors.","guide":null},{"id":51,"name":"Fatamorgana","branch":"Monti","cat":"gelato","style":"Gelateria","hood":"Monti","address":"Piazza degli Zingari 5, Roma","lat":41.895618,"lng":12.493247,"blurb":"Gluten-free artisan gelato on a quiet Monti piazza.","guide":null},{"id":52,"name":"Fatamorgana","branch":"Trastevere","cat":"gelato","style":"Gelateria","hood":"Trastevere","address":"Via Roma Libera 11, Roma","lat":41.886467,"lng":12.469229,"blurb":"Gluten-free artisan gelato near Piazza San Cosimato.","guide":null},{"id":53,"name":"Fior di Luna","branch":null,"cat":"gelato","style":"Gelateria","hood":"Trastevere","address":"Via della Lungaretta 96, Roma","lat":41.88962,"lng":12.472562,"blurb":"Small natural gelateria using organic and fair-trade ingredients.","guide":null},{"id":54,"name":"Formaessenza","branch":null,"cat":"gelato","style":"Gelateria","hood":"Marconi","address":"Via Enrico Fermi 102, Roma","lat":41.864503,"lng":12.472494,"blurb":"Design-minded gelato served in jars, on sticks and as bonbons.","guide":null},{"id":55,"name":"Gelateria dei Gracchi","branch":"Prati","cat":"gelato","style":"Gelateria","hood":"Prati","address":"Via dei Gracchi 272, Roma","lat":41.90917,"lng":12.466853,"blurb":"The original shop, known for seasonal fruit flavors.","guide":null},{"id":56,"name":"Gelateria dei Gracchi","branch":"Centro Storico","cat":"gelato","style":"Gelateria","hood":"Centro Storico","address":"Via di Ripetta 261, Roma","lat":41.909655,"lng":12.476132,"blurb":"Central branch near Piazza del Popolo.","guide":null},{"id":57,"name":"Gelateria dei Gracchi","branch":"Nomentano","cat":"gelato","style":"Gelateria","hood":"Nomentano","address":"Viale delle Provincie 30, Roma","lat":41.912025,"lng":12.520649,"blurb":"Nomentano branch.","guide":null},{"id":58,"name":"Gelateria del Teatro","branch":null,"cat":"gelato","style":"Gelateria","hood":"Centro Storico","address":"Via dei Coronari 65, Roma","lat":41.900479,"lng":12.469519,"blurb":"Visible lab; herb flavors like sage and raspberry.","guide":null},{"id":59,"name":"Gelateria Gori","branch":null,"cat":"gelato","style":"Gelateria","hood":"Piazza Sempione","address":"Piazza Menenio Agrippa 8, Roma","lat":41.934869,"lng":12.536137,"blurb":"Montesacro gelateria for natural, creative flavors and semifreddi.","guide":null},{"id":60,"name":"La Gourmandise","branch":null,"cat":"gelato","style":"Gelateria","hood":"Monteverde Vecchio","address":"Via Felice Cavallotti 36, Roma","lat":41.87898,"lng":12.462189,"blurb":"Neighborhood gelateria with pure, balanced natural flavors.","guide":null},{"id":61,"name":"Neve di Latte","branch":"Centro Storico","cat":"gelato","style":"Gelateria","hood":"Centro Storico","address":"Via dei Banchi Vecchi 140, Roma","lat":41.897539,"lng":12.467798,"blurb":"Natural gelato made with organic milk.","guide":null},{"id":62,"name":"Neve di Latte","branch":"Flaminio","cat":"gelato","style":"Gelateria","hood":"Flaminio","address":"Via Luigi Poletti 6, Roma","lat":41.929877,"lng":12.46491,"blurb":"The original shop, near MAXXI.","guide":null},{"id":63,"name":"Neve di Latte","branch":"Prati","cat":"gelato","style":"Gelateria","hood":"Prati","address":"Via Federico Cesi 1, Roma","lat":41.906337,"lng":12.470593,"blurb":"Branch by Piazza Cavour.","guide":null},{"id":64,"name":"Otaleg!","branch":"Trastevere","cat":"gelato","style":"Gelateria","hood":"Trastevere","address":"Via di San Cosimato 14, Roma","lat":41.888156,"lng":12.470467,"blurb":"Gelato with a visible lab, classic and creative flavors.","guide":null},{"id":65,"name":"Otaleg!","branch":"Monteverde Vecchio","cat":"gelato","style":"Gelateria & pastry","hood":"Monteverde Vecchio","address":"Viale dei Quattro Venti 70, Roma","lat":41.88302,"lng":12.458535,"blurb":"Larger shop with gelato lab, pastry and café.","guide":null},{"id":66,"name":"Torcè","branch":"Aventino","cat":"gelato","style":"Gelateria","hood":"Aventino","address":"Viale Aventino 59, Roma","lat":41.88145,"lng":12.485777,"blurb":"Claudio Torcè's natural gelato, including savory flavors.","guide":"The guide calls Claudio Torcè one of modern Roman gelato's most important figures: he trained many of the city's top gelato makers and is known for more than 100 all-natural flavors."},{"id":67,"name":"Torcè","branch":"EUR","cat":"gelato","style":"Gelateria","hood":"EUR","address":"Viale dell'Aeronautica 105, Roma","lat":41.826344,"lng":12.477352,"blurb":"EUR shop of the natural-gelato pioneer.","guide":null},{"id":68,"name":"Mercato di Campagna Amica del Circo Massimo","branch":null,"cat":"market","style":"Farmers' market","hood":"Circo Massimo","address":"Via di San Teodoro 74, Roma","lat":41.888829,"lng":12.483394,"blurb":"Producers from around Lazio selling direct. Weekends, mornings to mid-afternoon.","guide":null},{"id":69,"name":"Mercato di San Giovanni di Dio","branch":null,"cat":"market","style":"Open-air market","hood":"Monteverde","address":"Piazza San Giovanni di Dio, Roma","lat":41.874312,"lng":12.447818,"blurb":"Big, affordable Monteverde market for produce and fish. Mornings, Monday to Saturday.","guide":null},{"id":70,"name":"Mercato Trionfale","branch":null,"cat":"market","style":"Covered market","hood":"Trionfale","address":"Via Andrea Doria 41, Roma","lat":41.909384,"lng":12.452724,"blurb":"Huge covered market near the Vatican. Mornings, Monday to Saturday.","guide":null},{"id":71,"name":"Nuovo Mercato di Testaccio","branch":null,"cat":"market","style":"Covered market","hood":"Testaccio","address":"Via Beniamino Franklin 12, Roma","lat":41.877545,"lng":12.473688,"blurb":"Covered market mixing produce and butcher stalls with street-food counters.","guide":"Home to the Mordi e Vai stall, which is now in its second generation."},{"id":72,"name":"Mercato Campo Marzio","branch":null,"cat":"market","style":"Covered market","hood":"Centro Storico","address":"Piazza di Monte d'Oro 29, Roma","lat":41.904587,"lng":12.477223,"blurb":"Tiny covered neighborhood market, about a dozen stalls, near Piazza Borghese.","guide":null},{"id":73,"name":"Nuovo Mercato Esquilino","branch":null,"cat":"market","style":"Covered market","hood":"Esquilino","address":"Via Principe Amedeo 184, Roma","lat":41.895402,"lng":12.50654,"blurb":"Multicultural covered market: spices, halal meat and produce from around the world.","guide":null},{"id":74,"name":"Forme Dispensa a Ripa","branch":null,"cat":"market","style":"Cheese, salumi & wine shop","hood":"Trastevere","address":"Via di San Francesco a Ripa 71, Roma","lat":41.885832,"lng":12.472769,"blurb":"Artisan cheeses, salumi, anchovies and natural wine.","guide":null},{"id":75,"name":"La Differenza","branch":null,"cat":"market","style":"Deli (pizzicheria) & bistrot","hood":"Appio-Latino","address":"Largo Magna Grecia 4, Roma","lat":41.883574,"lng":12.509138,"blurb":"Family pizzicheria for salumi, cheese and wine, now with a bistrot.","guide":null},{"id":76,"name":"La Formaggeria","branch":null,"cat":"market","style":"Cheese shop","hood":"Appio-Latino","address":"Piazza Epiro, Roma","lat":41.878517,"lng":12.504873,"blurb":"Cheese stall (boxes 25–26) inside Mercato Latino, with cheeses from small producers.","guide":null}];
+const CATS = [
+  {k:'trattoria', label:'Trattorie', one:'Trattoria'},
+  {k:'pizzeria',  label:'Pizzerie', one:'Pizzeria'},
+  {k:'teglia',    label:'Pizza in teglia', one:'Pizza in teglia'},
+  {k:'quick',     label:'Quick bites', one:'Quick bite'},
+  {k:'sweets',    label:'Sweets', one:'Sweets'},
+  {k:'gelato',    label:'Gelato', one:'Gelato'},
+  {k:'market',    label:'Markets & shops', one:'Market & shop'},
+];
+const CAT = Object.fromEntries(CATS.map(c=>[c.k,c]));
+const ICON = {
+  trattoria:'<svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"><path d="M4.5 1.8v12.4M2.6 1.8v3.6a1.9 1.9 0 0 0 3.8 0V1.8"/><path d="M11.4 14.2V1.8c-1.7.6-2.4 2.6-2.4 5.2 0 1.2.5 1.9 1.3 2.1h1.1"/></svg>',
+  pizzeria:'<svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"><circle cx="8" cy="8" r="6.2"/><path d="M8 8 12.4 3.6M8 8v6.2"/><circle cx="5.4" cy="6.2" r=".9" fill="#fff" stroke="none"/><circle cx="10.6" cy="9.8" r=".9" fill="#fff" stroke="none"/></svg>',
+  teglia:'<svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"><rect x="1.8" y="4" width="12.4" height="8" rx="1.2"/><path d="M6 4v8M10 4v8"/></svg>',
+  quick:'<svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"><ellipse cx="8" cy="8" rx="6.3" ry="3.9" transform="rotate(-30 8 8)"/><path d="M5.7 9.6c1.3-.4 2.8-1.3 4-2.7" stroke-linecap="round"/></svg>',
+  sweets:'<svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"><path d="M2 13.6h12V8.4L2 5z"/><path d="M2 9.2l12 1.8"/><path d="M4.6 5.6c-.2-1.4.7-2.6 1.9-2.6" stroke-linecap="round"/></svg>',
+  gelato:'<svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"><path d="M4.4 7.4 8 14.6l3.6-7.2"/><path d="M4 7.4a4 4 0 1 1 8 0z"/></svg>',
+  market:'<svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"><path d="M1.8 6.6h12.4l-1.4 7.2H3.2z"/><path d="M5 6.6 7 2.4M11 6.6 9 2.4" stroke-linecap="round"/></svg>',
+};
+const SVG = {
+  star:'<svg viewBox="0 0 20 20" fill="currentColor"><path d="m10 2.2 2.4 5 5.4.6-4 3.7 1.1 5.4L10 14.2l-4.9 2.7 1.1-5.4-4-3.7 5.4-.6z"/></svg>',
+  starO:'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="m10 2.2 2.4 5 5.4.6-4 3.7 1.1 5.4L10 14.2l-4.9 2.7 1.1-5.4-4-3.7 5.4-.6z"/></svg>',
+  check:'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7.6" fill="currentColor" stroke="none"/><path d="m6.6 10.2 2.3 2.3 4.6-4.8" stroke="var(--surface)"/></svg>',
+  checkO:'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7.6"/><path d="m6.6 10.2 2.3 2.3 4.6-4.8"/></svg>',
+  go:'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 18s6-5.2 6-10a6 6 0 0 0-12 0c0 4.8 6 10 6 10z"/><circle cx="10" cy="8" r="2.2"/></svg>',
+};
+const esc = s => String(s??'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const color = k => `var(--c-${k})`;
+const fullName = p => p.branch ? `${p.name} · ${p.branch}` : p.name;
+
+// ---- per-viewer marks (localStorage, fails soft) ----
+const KEY='mangiare-roma-marks-v1';
+let marks={want:[],been:[]};
+try{ const s=JSON.parse(localStorage.getItem(KEY)||'null'); if(s&&Array.isArray(s.want)&&Array.isArray(s.been)) marks=s; }catch(e){}
+const want=new Set(marks.want), been=new Set(marks.been);
+function saveMarks(){ try{ localStorage.setItem(KEY, JSON.stringify({want:[...want],been:[...been]})); }catch(e){} }
+
+// ---- state ----
+const state={cats:new Set(CATS.map(c=>c.k)), q:'', hood:'', show:'all', group:'hood', sel:null};
+try{ const g=localStorage.getItem(KEY+'-group'); if(g==='cat'||g==='hood') state.group=g; }catch(e){}
+
+// ---- map ----
+const map=L.map('map',{zoomControl:true,minZoom:11,maxZoom:17,zoomSnap:0.5,attributionControl:true,
+  maxBounds:[[41.79,12.39],[41.975,12.62]],maxBoundsViscosity:0.8});
+map.fitBounds(PLACES.map(p=>[p.lat,p.lng]),{padding:[24,24],maxZoom:14});
+map.attributionControl.setPrefix(false);
+const tileOpts={tileSize:512,zoomOffset:-1,minZoom:11,maxZoom:17,minNativeZoom:10,maxNativeZoom:15,
+  bounds:[[41.808,12.418],[41.955,12.592]],
+  attribution:'© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> · <a href="https://overturemaps.org" target="_blank" rel="noopener">Overture Maps</a>'};
+let tiles=null, tileTheme=null;
+function isDark(){
+  const t=document.documentElement.getAttribute('data-theme');
+  if(t==='dark') return true; if(t==='light') return false;
+  return window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches;
+}
+function setTiles(){
+  const th=isDark()?'dark':'light'; if(th===tileTheme) return; tileTheme=th;
+  const nt=L.tileLayer(`tiles/${th}/{z}/{x}/{y}.webp`,tileOpts).addTo(map);
+  if(tiles){ const old=tiles; nt.once('load',()=>map.removeLayer(old)); setTimeout(()=>{ if(map.hasLayer(old)) map.removeLayer(old); },1500); }
+  tiles=nt;
+}
+setTiles();
+try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',setTiles); }catch(e){}
+new MutationObserver(setTiles).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+
+// labels
+const HOODS=[
+  ['Centro Storico',41.8985,12.4735,1],['Trastevere',41.8872,12.4665,1],['Testaccio',41.8762,12.4745,1],['Prati',41.9085,12.4640,1],
+  ['Monti',41.8955,12.4905,1],['Esquilino',41.8985,12.5060,1],['EUR',41.8330,12.4715,1],['Garbatella',41.8600,12.4880,1],
+  ['Ostiense',41.8700,12.4830,1],['San Giovanni',41.8830,12.5130,1],['Monteverde',41.8765,12.4545,1],['San Lorenzo',41.8975,12.5165,1],
+  ['Tor Pignattara',41.8790,12.5360,1],['Aventino',41.8835,12.4800,2],['Nomentano',41.9170,12.5120,1],['Flaminio',41.9255,12.4695,1],
+  ['Trionfale',41.9115,12.4490,2],['Tuscolano',41.8660,12.5470,1],['Appio-Latino',41.8745,12.5095,2],['San Paolo',41.8545,12.4800,2],
+  ['Marconi',41.8585,12.4660,2],['Montesacro',41.9385,12.5300,1],['Ponte Milvio',41.9395,12.4700,2],['Parioli',41.9255,12.4940,1],
+  ['Vaticano',41.9035,12.4520,2],['Casal Bertone',41.9005,12.5335,2],['Pigneto',41.8895,12.5285,2],['Ghetto',41.8922,12.4760,2],
+  ['Gianicolense',41.8740,12.4400,2],['Re di Roma',41.8810,12.5170,2]];
+const MARKS=[['Colosseo',41.8902,12.4922],['Pantheon',41.8986,12.4768],['Piazza Navona',41.8992,12.4731],["Campo de' Fiori",41.8956,12.4722],
+  ['San Pietro',41.9022,12.4539],['Termini',41.9010,12.5015],['Fontana di Trevi',41.9009,12.4833],['Piramide',41.8757,12.4818],
+  ['Circo Massimo',41.8859,12.4852],['Villa Pamphili',41.8850,12.4470],['Villa Borghese',41.9135,12.4870],['Piazza di Spagna',41.9057,12.4823],
+  ['Piazza del Popolo',41.9107,12.4763],['Bocca della Verità',41.8881,12.4817],['Piazza Vittorio',41.8951,12.5048],['Stazione Trastevere',41.8724,12.4661],
+  ['Palazzo della Civiltà',41.8368,12.4654]];
+const labelLayer=L.layerGroup().addTo(map);
+function lab(text,lat,lng,cls){ L.marker([lat,lng],{interactive:false,keyboard:false,icon:L.divIcon({className:'',html:`<div class="lab ${cls}">${esc(text)}</div>`,iconSize:[0,0]})}).addTo(labelLayer); }
+HOODS.forEach(([n,a,b,t])=>lab(n,a,b,'hood t'+t));
+MARKS.forEach(([n,a,b])=>lab(n,a,b,'mark'));
+lab('Tevere',41.8915,12.4735,'river'); lab('Tevere',41.9205,12.4715,'river t2');
+function zoomClass(){ const z=map.getZoom(), c=map.getContainer();
+  c.classList.toggle('z-lo',z<13); c.classList.toggle('z-mid',z>=13&&z<14.5); c.classList.toggle('z-hi',z>=14.5); }
+map.on('zoomend',zoomClass); zoomClass();
+
+// markers
+const markers={};
+function pinHtml(p){
+  const cls=['pin']; if(want.has(p.id)) cls.push('want'); if(been.has(p.id)) cls.push('been'); if(state.sel===p.id) cls.push('sel');
+  return `<div class="${cls.join(' ')}" style="background:${color(p.cat)}">${ICON[p.cat]}</div>`;
+}
+function iconFor(p){ return L.divIcon({className:'',html:pinHtml(p),iconSize:[30,30],iconAnchor:[15,15],popupAnchor:[0,-14]}); }
+const gmaps = p => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name+', '+p.address)}`;
+function popupHtml(p){
+  const c=CAT[p.cat], w=want.has(p.id), b=been.has(p.id);
+  return `<div class="pop">
+    <div class="cat"><i style="background:${color(p.cat)}"></i>${esc(c.one)}</div>
+    <h3>${esc(p.name)}${p.branch?`<small>${esc(p.branch)} location</small>`:''}</h3>
+    <div class="style">${esc(p.style)} · ${esc(p.hood)}</div>
+    <div class="addr">${esc(p.address)}</div>
+    <p class="bl">${esc(p.blurb)}</p>
+    ${p.guide?`<div class="guide"><b>In the guide</b>${esc(p.guide)}</div>`:''}
+    <div class="acts">
+      <a class="go" href="${gmaps(p)}" target="_blank" rel="noopener">${SVG.go}Directions</a>
+      <button type="button" class="want" data-act="want" data-id="${p.id}" aria-pressed="${w}">${w?SVG.star:SVG.starO}Want to go</button>
+      <button type="button" class="been" data-act="been" data-id="${p.id}" aria-pressed="${b}">${b?SVG.check:SVG.checkO}Been</button>
+    </div></div>`;
+}
+PLACES.forEach(p=>{
+  const m=L.marker([p.lat,p.lng],{icon:iconFor(p),title:fullName(p),riseOnHover:true,keyboard:true});
+  m.bindPopup(()=>popupHtml(p),{maxWidth:320,autoPanPadding:[24,24]});
+  m.on('popupopen',()=>{ select(p.id,false); });
+  m.on('popupclose',()=>{ if(state.sel===p.id){ state.sel=null; refreshPin(p); markSelInList(); } });
+  markers[p.id]=m;
+});
+function refreshPin(p){ markers[p.id].setIcon(iconFor(p)); }
+
+// ---- filtering ----
+function matches(p){
+  if(!state.cats.has(p.cat)) return false;
+  if(state.hood && p.hood!==state.hood) return false;
+  if(state.show==='want' && !want.has(p.id)) return false;
+  if(state.show==='been' && !been.has(p.id)) return false;
+  if(state.show==='todo' && been.has(p.id)) return false;
+  if(state.q){ const hay=(p.name+' '+(p.branch||'')+' '+p.style+' '+p.hood+' '+p.address+' '+CAT[p.cat].label).toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,''); if(!state.q.split(/\s+/).every(t=>hay.includes(t))) return false; }
+  return true;
+}
+function visible(){ return PLACES.filter(matches); }
+
+// ---- UI: chips, hoods ----
+const chipsEl=document.getElementById('chips');
+function renderChips(){
+  chipsEl.innerHTML=CATS.map(c=>{ const n=PLACES.filter(p=>p.cat===c.k).length;
+    return `<button type="button" class="chip" data-cat="${c.k}" aria-pressed="${state.cats.has(c.k)}"><span class="dot" style="background:${color(c.k)}">${ICON[c.k]}</span>${esc(c.label)} <span class="n">${n}</span></button>`; }).join('');
+}
+chipsEl.addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return; const k=b.dataset.cat;
+  // first click from "all on" isolates the category; otherwise toggle
+  if(state.cats.size===CATS.length){ state.cats=new Set([k]); }
+  else if(state.cats.has(k)){ state.cats.delete(k); if(!state.cats.size) state.cats=new Set(CATS.map(c=>c.k)); }
+  else state.cats.add(k);
+  renderChips(); update(true);
+});
+const hoodSel=document.getElementById('hood');
+const hoodCounts={}; PLACES.forEach(p=>hoodCounts[p.hood]=(hoodCounts[p.hood]||0)+1);
+Object.keys(hoodCounts).sort((a,b)=>a.localeCompare(b)).forEach(h=>{ const o=document.createElement('option'); o.value=h; o.textContent=`${h} (${hoodCounts[h]})`; hoodSel.appendChild(o); });
+hoodSel.addEventListener('change',()=>{ state.hood=hoodSel.value; update(true); });
+const qEl=document.getElementById('q');
+qEl.addEventListener('input',()=>{ state.q=qEl.value.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); update(false); });
+document.querySelectorAll('[data-show]').forEach(b=>b.addEventListener('click',()=>{ state.show=b.dataset.show;
+  document.querySelectorAll('[data-show]').forEach(x=>x.setAttribute('aria-pressed',x===b)); update(true); }));
+document.querySelectorAll('[data-group]').forEach(b=>{ b.setAttribute('aria-pressed',b.dataset.group===state.group);
+  b.addEventListener('click',()=>{ state.group=b.dataset.group; try{localStorage.setItem(KEY+'-group',state.group);}catch(e){}
+  document.querySelectorAll('[data-group]').forEach(x=>x.setAttribute('aria-pressed',x===b)); renderList(visible()); }); });
+
+// ---- list ----
+const listEl=document.getElementById('list');
+function itemHtml(p){
+  const w=want.has(p.id), b=been.has(p.id);
+  return `<div class="item${state.sel===p.id?' sel':''}" data-id="${p.id}" role="button" tabindex="0" aria-label="${esc(fullName(p))}, ${esc(p.style)}">
+    <span class="pinmini" style="background:${color(p.cat)}">${ICON[p.cat]}</span>
+    <div><div class="nm">${esc(p.name)}${p.branch?` <small>· ${esc(p.branch)}</small>`:''}</div>
+    <div class="meta">${esc(p.style)}${state.group==='cat'?` <span class="h">· ${esc(p.hood)}</span>`:''}</div></div>
+    <div class="marks">
+      <button type="button" class="mk want" data-act="want" data-id="${p.id}" aria-pressed="${w}" title="Want to go" aria-label="Want to go: ${esc(fullName(p))}">${w?SVG.star:SVG.starO}</button>
+      <button type="button" class="mk been" data-act="been" data-id="${p.id}" aria-pressed="${b}" title="Been" aria-label="Been: ${esc(fullName(p))}">${b?SVG.check:SVG.checkO}</button>
+    </div></div>`;
+}
+function renderList(vis){
+  if(!vis.length){ listEl.innerHTML=`<div class="empty">No places match these filters.<br><button type="button" id="reset">Clear filters</button></div>`;
+    document.getElementById('reset').onclick=resetFilters; return; }
+  const groups=new Map();
+  if(state.group==='cat'){ CATS.forEach(c=>{ const g=vis.filter(p=>p.cat===c.k); if(g.length) groups.set(c.label,g); }); }
+  else { const by={}; vis.forEach(p=>(by[p.hood]=by[p.hood]||[]).push(p));
+    Object.keys(by).sort((a,b)=>by[b].length-by[a].length||a.localeCompare(b)).forEach(h=>groups.set(h,by[h])); }
+  let html=''; for(const [g,items] of groups){
+    items.sort((a,b)=>state.group==='cat'?a.name.localeCompare(b.name):(CATS.findIndex(c=>c.k===a.cat)-CATS.findIndex(c=>c.k===b.cat))||a.name.localeCompare(b.name));
+    html+=`<section class="group"><h2>${esc(g)}<span>${items.length}</span></h2>${items.map(itemHtml).join('')}</section>`; }
+  listEl.innerHTML=html;
+}
+function resetFilters(){ state.cats=new Set(CATS.map(c=>c.k)); state.q=''; qEl.value=''; state.hood=''; hoodSel.value=''; state.show='all';
+  document.querySelectorAll('[data-show]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.show==='all')); renderChips(); update(true); }
+listEl.addEventListener('click',e=>{
+  const act=e.target.closest('[data-act]'); if(act){ e.stopPropagation(); toggleMark(+act.dataset.id,act.dataset.act); return; }
+  const it=e.target.closest('.item'); if(it) focusPlace(+it.dataset.id);
+});
+listEl.addEventListener('keydown',e=>{ if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('item')){ e.preventDefault(); focusPlace(+e.target.dataset.id); } });
+document.getElementById('map').addEventListener('click',e=>{ const act=e.target.closest('[data-act]'); if(act) toggleMark(+act.dataset.id,act.dataset.act); });
+
+function markSelInList(){ listEl.querySelectorAll('.item').forEach(el=>el.classList.toggle('sel',+el.dataset.id===state.sel)); }
+function select(id){
+  const prev=state.sel; state.sel=id;
+  if(prev&&prev!==id){ const pp=PLACES.find(x=>x.id===prev); if(pp) refreshPin(pp); }
+  const p=PLACES.find(x=>x.id===id); refreshPin(p); markSelInList();
+  const el=listEl.querySelector(`.item[data-id="${id}"]`);
+  if(el && window.matchMedia('(min-width: 821px)').matches){ const r=el.getBoundingClientRect(), lr=listEl.getBoundingClientRect(); if(r.top<lr.top+40||r.bottom>lr.bottom) el.scrollIntoView({block:'center',behavior:'smooth'}); }
+}
+function focusPlace(id){
+  const p=PLACES.find(x=>x.id===id), m=markers[id];
+  if(!map.hasLayer(m)) m.addTo(map);
+  const narrow=window.matchMedia('(max-width: 820px)').matches;
+  if(narrow) document.querySelector('.mapwrap').scrollIntoView({behavior:'smooth',block:'start'});
+  map.flyTo([p.lat,p.lng],Math.max(map.getZoom(),15),{duration:.6});
+  map.once('moveend',()=>m.openPopup());
+}
+function toggleMark(id,kind){
+  const set=kind==='want'?want:been; set.has(id)?set.delete(id):set.add(id);
+  if(kind==='been'&&been.has(id)) want.delete(id);
+  saveMarks(); const p=PLACES.find(x=>x.id===id); refreshPin(p);
+  const m=markers[id]; if(m.isPopupOpen()) m.setPopupContent(popupHtml(p));
+  update(false,true);
+}
+
+// ---- update ----
+function update(fit,keepMap){
+  const vis=visible(), ids=new Set(vis.map(p=>p.id));
+  PLACES.forEach(p=>{ const m=markers[p.id], on=ids.has(p.id);
+    if(on&&!map.hasLayer(m)) m.addTo(map);
+    if(!on&&map.hasLayer(m)){ if(m.isPopupOpen()&&keepMap){} else map.removeLayer(m); } });
+  document.getElementById('t-show').textContent=vis.length;
+  document.getElementById('t-want').textContent=want.size;
+  document.getElementById('t-been').textContent=been.size;
+  document.getElementById('total').textContent=PLACES.length;
+  renderList(vis);
+  if(fit&&vis.length){ const b=L.latLngBounds(vis.map(p=>[p.lat,p.lng])); map.flyToBounds(b,{padding:[40,40],maxZoom:15.5,duration:.5}); }
+}
+renderChips(); update(false);
+setTimeout(()=>map.invalidateSize(),0); window.addEventListener('resize',()=>map.invalidateSize());
+</script>
