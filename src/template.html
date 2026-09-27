@@ -15,7 +15,7 @@
   --map-bg:#ECE7DE; --label:#5E554B; --label-halo:rgba(236,231,222,.92); --landmark:#8A7F72;
   --pin-ring:#FFFFFF; --shadow:0 1px 2px rgba(40,30,20,.12),0 6px 18px rgba(40,30,20,.10);
   --c-trattoria:#B03A2E; --c-gelato:#2F6FD0; --c-market:#138A5E; --c-quick:#7B55C8;
-  --c-pizzeria:#D06A12; --c-sweets:#C8418A; --c-teglia:#8F7A0A;
+  --c-pizzeria:#D06A12; --c-sweets:#C8418A; --c-teglia:#8F7A0A; --c-bar:#0A8AA8;
   --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
   --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   color-scheme:light;
@@ -47,7 +47,9 @@ button,input,select{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--focus);outline-offset:2px}
 .app{display:grid;grid-template-columns:minmax(340px,410px) 1fr;height:100%}
 .side{display:flex;flex-direction:column;min-height:0;background:var(--surface);border-right:1px solid var(--line)}
-.head{padding:22px 22px 14px;display:grid;gap:6px}
+.head{padding:18px 22px 14px;display:grid;gap:6px}
+.regionsw{justify-self:start;margin-bottom:6px}
+.regionsw button{font-weight:600}
 .eyebrow{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
 h1{font-family:var(--display);font-weight:700;font-size:34px;line-height:1.02;margin:0;letter-spacing:-.01em;text-wrap:balance}
 h1 em{font-style:italic;font-weight:500;color:var(--ochre)}
@@ -122,6 +124,14 @@ details.notes .credit{margin:12px 0 0;font-size:11.5px;color:var(--muted)}
 .lab.mark{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--landmark);font-weight:600}
 .lab.river{font-family:var(--display);font-style:italic;font-size:14px;letter-spacing:.3em;color:#5E8F88}
 .z-lo .lab.t2,.z-lo .lab.mark,.z-mid .lab.mark{display:none}
+.lab.town,.lab.town2{transform:translate(-50%,12px)}
+.lab.town{font-family:var(--display);font-weight:700;font-size:14px;color:var(--label)}
+.lab.town2{font-size:11px;letter-spacing:.06em;color:var(--landmark);font-weight:500}
+.lab.sea{font-size:15px;letter-spacing:.35em;text-transform:uppercase;font-style:italic}
+.z-hi .lab.town{font-size:16px}
+.z-reg .lab.t3{display:none}
+.pop .guide.warn{background:color-mix(in srgb,var(--ochre) 14%,transparent)}
+.pop .guide.warn b{color:var(--ochre)}
 .z-hi .lab.hood{font-size:17px}
 .leaflet-popup-content-wrapper{background:var(--surface);color:var(--ink);border-radius:12px;box-shadow:var(--shadow);border:1px solid var(--line)}
 .leaflet-popup-tip{background:var(--surface);border:1px solid var(--line)}
@@ -162,9 +172,13 @@ details.notes .credit{margin:12px 0 0;font-size:11.5px;color:var(--muted)}
 <div class="app">
   <aside class="side">
     <header class="head">
-      <div class="eyebrow">Rome · <span id="total">76</span> places</div>
-      <h1>Mangiare <em>a</em> Roma</h1>
-      <p class="src">Every trattoria, pizzeria, bakery, gelateria and market in <a href="https://katieparla.com/" target="_blank" rel="noopener">The Katie Parla Guide to Eating Well in Rome</a> (2026), pinned by street address. An unofficial companion map.</p>
+      <div class="seg regionsw" role="group" aria-label="Region">
+        <button type="button" data-region="roma" aria-pressed="true">Roma <span class="n" data-rcount="roma"></span></button>
+        <button type="button" data-region="puglia" aria-pressed="false">Puglia <span class="n" data-rcount="puglia"></span></button>
+      </div>
+      <div class="eyebrow"><span id="rname">Rome</span> · <span id="total">76</span> places</div>
+      <h1 id="title">Mangiare <em>a</em> Roma</h1>
+      <p class="src" id="src"></p>
       <div class="tally" aria-live="polite"><span><b id="t-show">76</b> shown</span><span><b id="t-want">0</b> want to go</span><span><b id="t-been">0</b> been</span></div>
     </header>
     <div class="controls">
@@ -174,7 +188,7 @@ details.notes .credit{margin:12px 0 0;font-size:11.5px;color:var(--muted)}
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="7" cy="7" r="5"/><path d="m11 11 3.5 3.5"/></svg>
           <input id="q" type="search" placeholder="Search" autocomplete="off" aria-label="Search places">
         </label>
-        <label class="field" style="flex:0 1 190px"><select id="hood" aria-label="Neighborhood"><option value="">All neighborhoods</option></select></label>
+        <label class="field" style="flex:0 1 190px"><select id="hood" aria-label="Neighborhood"></select></label>
       </div>
       <div class="subrow">
         <div class="seg" role="group" aria-label="Show">
@@ -191,8 +205,15 @@ details.notes .credit{margin:12px 0 0;font-size:11.5px;color:var(--muted)}
     </div>
     <div class="list" id="list"></div>
     <details class="notes">
-      <summary>How Romans eat: notes from the guide</summary>
-      <ul>
+      <summary id="notes-sum">How Romans eat: notes from the guide</summary>
+      <ul data-notes="puglia" hidden>
+        <li>In Lecce, start the day standing at a bar with a pasticciotto (a cream-filled shortcrust tart) and a rustico (puff pastry with béchamel, mozzarella, tomato and black pepper).</li>
+        <li>Try an espressino freddo at Avio, and gelato flavors based on local sweets (pasticciotto, mustazzolo) at Natale.</li>
+        <li>On the coast, order crudi (raw seafood) and, in season, sea urchins scooped up with bread.</li>
+        <li>At Super Mago del Gelo, pay at the register first. Each granita comes with two flavors; try gelso nero and mandorla.</li>
+        <li>Some Salento trattorie close in the afternoon; L'Orecchietta serves lunch, then reopens until 8 PM.</li>
+      </ul>
+      <ul data-notes="roma">
         <li>At a trattoria you don't need every course, but order two or three per person (an antipasto, a secondo and a contorno, or a primo then a secondo) so the kitchen isn't firing single plates.</li>
         <li>Pizza tonda is thin, crisp and chewy with barely any rim. Forni sell pizza bianca and rossa by weight; try bianca stuffed with mortadella.</li>
         <li>Street food is eaten standing, leaning or perched for a minute before moving on.</li>
@@ -207,238 +228,5 @@ details.notes .credit{margin:12px 0 0;font-size:11.5px;color:var(--muted)}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 <script>
-const PLACES = /*__DATA__*/[];
-const CATS = [
-  {k:'trattoria', label:'Trattorie', one:'Trattoria'},
-  {k:'pizzeria',  label:'Pizzerie', one:'Pizzeria'},
-  {k:'teglia',    label:'Pizza in teglia', one:'Pizza in teglia'},
-  {k:'quick',     label:'Quick bites', one:'Quick bite'},
-  {k:'sweets',    label:'Sweets', one:'Sweets'},
-  {k:'gelato',    label:'Gelato', one:'Gelato'},
-  {k:'market',    label:'Markets & shops', one:'Market & shop'},
-];
-const CAT = Object.fromEntries(CATS.map(c=>[c.k,c]));
-const ICON = {
-  trattoria:'<svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"><path d="M4.5 1.8v12.4M2.6 1.8v3.6a1.9 1.9 0 0 0 3.8 0V1.8"/><path d="M11.4 14.2V1.8c-1.7.6-2.4 2.6-2.4 5.2 0 1.2.5 1.9 1.3 2.1h1.1"/></svg>',
-  pizzeria:'<svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"><circle cx="8" cy="8" r="6.2"/><path d="M8 8 12.4 3.6M8 8v6.2"/><circle cx="5.4" cy="6.2" r=".9" fill="#fff" stroke="none"/><circle cx="10.6" cy="9.8" r=".9" fill="#fff" stroke="none"/></svg>',
-  teglia:'<svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"><rect x="1.8" y="4" width="12.4" height="8" rx="1.2"/><path d="M6 4v8M10 4v8"/></svg>',
-  quick:'<svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"><ellipse cx="8" cy="8" rx="6.3" ry="3.9" transform="rotate(-30 8 8)"/><path d="M5.7 9.6c1.3-.4 2.8-1.3 4-2.7" stroke-linecap="round"/></svg>',
-  sweets:'<svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"><path d="M2 13.6h12V8.4L2 5z"/><path d="M2 9.2l12 1.8"/><path d="M4.6 5.6c-.2-1.4.7-2.6 1.9-2.6" stroke-linecap="round"/></svg>',
-  gelato:'<svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"><path d="M4.4 7.4 8 14.6l3.6-7.2"/><path d="M4 7.4a4 4 0 1 1 8 0z"/></svg>',
-  market:'<svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"><path d="M1.8 6.6h12.4l-1.4 7.2H3.2z"/><path d="M5 6.6 7 2.4M11 6.6 9 2.4" stroke-linecap="round"/></svg>',
-};
-const SVG = {
-  star:'<svg viewBox="0 0 20 20" fill="currentColor"><path d="m10 2.2 2.4 5 5.4.6-4 3.7 1.1 5.4L10 14.2l-4.9 2.7 1.1-5.4-4-3.7 5.4-.6z"/></svg>',
-  starO:'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="m10 2.2 2.4 5 5.4.6-4 3.7 1.1 5.4L10 14.2l-4.9 2.7 1.1-5.4-4-3.7 5.4-.6z"/></svg>',
-  check:'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7.6" fill="currentColor" stroke="none"/><path d="m6.6 10.2 2.3 2.3 4.6-4.8" stroke="var(--surface)"/></svg>',
-  checkO:'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7.6"/><path d="m6.6 10.2 2.3 2.3 4.6-4.8"/></svg>',
-  go:'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 18s6-5.2 6-10a6 6 0 0 0-12 0c0 4.8 6 10 6 10z"/><circle cx="10" cy="8" r="2.2"/></svg>',
-};
-const esc = s => String(s??'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const color = k => `var(--c-${k})`;
-const fullName = p => p.branch ? `${p.name} · ${p.branch}` : p.name;
-
-// ---- per-viewer marks (localStorage, fails soft) ----
-const KEY='mangiare-roma-marks-v1';
-let marks={want:[],been:[]};
-try{ const s=JSON.parse(localStorage.getItem(KEY)||'null'); if(s&&Array.isArray(s.want)&&Array.isArray(s.been)) marks=s; }catch(e){}
-const want=new Set(marks.want), been=new Set(marks.been);
-function saveMarks(){ try{ localStorage.setItem(KEY, JSON.stringify({want:[...want],been:[...been]})); }catch(e){} }
-
-// ---- state ----
-const state={cats:new Set(CATS.map(c=>c.k)), q:'', hood:'', show:'all', group:'hood', sel:null};
-try{ const g=localStorage.getItem(KEY+'-group'); if(g==='cat'||g==='hood') state.group=g; }catch(e){}
-
-// ---- map ----
-const map=L.map('map',{zoomControl:true,minZoom:11,maxZoom:17,zoomSnap:0.5,attributionControl:true,
-  maxBounds:[[41.79,12.39],[41.975,12.62]],maxBoundsViscosity:0.8});
-map.fitBounds(PLACES.map(p=>[p.lat,p.lng]),{padding:[24,24],maxZoom:14});
-map.attributionControl.setPrefix(false);
-const tileOpts={tileSize:512,zoomOffset:-1,minZoom:11,maxZoom:17,minNativeZoom:10,maxNativeZoom:15,
-  bounds:[[41.808,12.418],[41.955,12.592]],
-  attribution:'© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> · <a href="https://overturemaps.org" target="_blank" rel="noopener">Overture Maps</a>'};
-let tiles=null, tileTheme=null;
-function isDark(){
-  const t=document.documentElement.getAttribute('data-theme');
-  if(t==='dark') return true; if(t==='light') return false;
-  return window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches;
-}
-function setTiles(){
-  const th=isDark()?'dark':'light'; if(th===tileTheme) return; tileTheme=th;
-  const nt=L.tileLayer(`tiles/${th}/{z}/{x}/{y}.webp`,tileOpts).addTo(map);
-  if(tiles){ const old=tiles; nt.once('load',()=>map.removeLayer(old)); setTimeout(()=>{ if(map.hasLayer(old)) map.removeLayer(old); },1500); }
-  tiles=nt;
-}
-setTiles();
-try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',setTiles); }catch(e){}
-new MutationObserver(setTiles).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
-
-// labels
-const HOODS=[
-  ['Centro Storico',41.8985,12.4735,1],['Trastevere',41.8872,12.4665,1],['Testaccio',41.8762,12.4745,1],['Prati',41.9085,12.4640,1],
-  ['Monti',41.8955,12.4905,1],['Esquilino',41.8985,12.5060,1],['EUR',41.8330,12.4715,1],['Garbatella',41.8600,12.4880,1],
-  ['Ostiense',41.8700,12.4830,1],['San Giovanni',41.8830,12.5130,1],['Monteverde',41.8765,12.4545,1],['San Lorenzo',41.8975,12.5165,1],
-  ['Tor Pignattara',41.8790,12.5360,1],['Aventino',41.8835,12.4800,2],['Nomentano',41.9170,12.5120,1],['Flaminio',41.9255,12.4695,1],
-  ['Trionfale',41.9115,12.4490,2],['Tuscolano',41.8660,12.5470,1],['Appio-Latino',41.8745,12.5095,2],['San Paolo',41.8545,12.4800,2],
-  ['Marconi',41.8585,12.4660,2],['Montesacro',41.9385,12.5300,1],['Ponte Milvio',41.9395,12.4700,2],['Parioli',41.9255,12.4940,1],
-  ['Vaticano',41.9035,12.4520,2],['Casal Bertone',41.9005,12.5335,2],['Pigneto',41.8895,12.5285,2],['Ghetto',41.8922,12.4760,2],
-  ['Gianicolense',41.8740,12.4400,2],['Re di Roma',41.8810,12.5170,2]];
-const MARKS=[['Colosseo',41.8902,12.4922],['Pantheon',41.8986,12.4768],['Piazza Navona',41.8992,12.4731],["Campo de' Fiori",41.8956,12.4722],
-  ['San Pietro',41.9022,12.4539],['Termini',41.9010,12.5015],['Fontana di Trevi',41.9009,12.4833],['Piramide',41.8757,12.4818],
-  ['Circo Massimo',41.8859,12.4852],['Villa Pamphili',41.8850,12.4470],['Villa Borghese',41.9135,12.4870],['Piazza di Spagna',41.9057,12.4823],
-  ['Piazza del Popolo',41.9107,12.4763],['Bocca della Verità',41.8881,12.4817],['Piazza Vittorio',41.8951,12.5048],['Stazione Trastevere',41.8724,12.4661],
-  ['Palazzo della Civiltà',41.8368,12.4654]];
-const labelLayer=L.layerGroup().addTo(map);
-function lab(text,lat,lng,cls){ L.marker([lat,lng],{interactive:false,keyboard:false,icon:L.divIcon({className:'',html:`<div class="lab ${cls}">${esc(text)}</div>`,iconSize:[0,0]})}).addTo(labelLayer); }
-HOODS.forEach(([n,a,b,t])=>lab(n,a,b,'hood t'+t));
-MARKS.forEach(([n,a,b])=>lab(n,a,b,'mark'));
-lab('Tevere',41.8915,12.4735,'river'); lab('Tevere',41.9205,12.4715,'river t2');
-function zoomClass(){ const z=map.getZoom(), c=map.getContainer();
-  c.classList.toggle('z-lo',z<13); c.classList.toggle('z-mid',z>=13&&z<14.5); c.classList.toggle('z-hi',z>=14.5); }
-map.on('zoomend',zoomClass); zoomClass();
-
-// markers
-const markers={};
-function pinHtml(p){
-  const cls=['pin']; if(want.has(p.id)) cls.push('want'); if(been.has(p.id)) cls.push('been'); if(state.sel===p.id) cls.push('sel');
-  return `<div class="${cls.join(' ')}" style="background:${color(p.cat)}">${ICON[p.cat]}</div>`;
-}
-function iconFor(p){ return L.divIcon({className:'',html:pinHtml(p),iconSize:[30,30],iconAnchor:[15,15],popupAnchor:[0,-14]}); }
-const gmaps = p => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name+', '+p.address)}`;
-function popupHtml(p){
-  const c=CAT[p.cat], w=want.has(p.id), b=been.has(p.id);
-  return `<div class="pop">
-    <div class="cat"><i style="background:${color(p.cat)}"></i>${esc(c.one)}</div>
-    <h3>${esc(p.name)}${p.branch?`<small>${esc(p.branch)} location</small>`:''}</h3>
-    <div class="style">${esc(p.style)} · ${esc(p.hood)}</div>
-    <div class="addr">${esc(p.address)}</div>
-    <p class="bl">${esc(p.blurb)}</p>
-    ${p.guide?`<div class="guide"><b>In the guide</b>${esc(p.guide)}</div>`:''}
-    <div class="acts">
-      <a class="go" href="${gmaps(p)}" target="_blank" rel="noopener">${SVG.go}Directions</a>
-      <button type="button" class="want" data-act="want" data-id="${p.id}" aria-pressed="${w}">${w?SVG.star:SVG.starO}Want to go</button>
-      <button type="button" class="been" data-act="been" data-id="${p.id}" aria-pressed="${b}">${b?SVG.check:SVG.checkO}Been</button>
-    </div></div>`;
-}
-PLACES.forEach(p=>{
-  const m=L.marker([p.lat,p.lng],{icon:iconFor(p),title:fullName(p),riseOnHover:true,keyboard:true});
-  m.bindPopup(()=>popupHtml(p),{maxWidth:320,autoPanPadding:[24,24]});
-  m.on('popupopen',()=>{ select(p.id,false); });
-  m.on('popupclose',()=>{ if(state.sel===p.id){ state.sel=null; refreshPin(p); markSelInList(); } });
-  markers[p.id]=m;
-});
-function refreshPin(p){ markers[p.id].setIcon(iconFor(p)); }
-
-// ---- filtering ----
-function matches(p){
-  if(!state.cats.has(p.cat)) return false;
-  if(state.hood && p.hood!==state.hood) return false;
-  if(state.show==='want' && !want.has(p.id)) return false;
-  if(state.show==='been' && !been.has(p.id)) return false;
-  if(state.show==='todo' && been.has(p.id)) return false;
-  if(state.q){ const hay=(p.name+' '+(p.branch||'')+' '+p.style+' '+p.hood+' '+p.address+' '+CAT[p.cat].label).toLowerCase()
-    .normalize('NFD').replace(/[\u0300-\u036f]/g,''); if(!state.q.split(/\s+/).every(t=>hay.includes(t))) return false; }
-  return true;
-}
-function visible(){ return PLACES.filter(matches); }
-
-// ---- UI: chips, hoods ----
-const chipsEl=document.getElementById('chips');
-function renderChips(){
-  chipsEl.innerHTML=CATS.map(c=>{ const n=PLACES.filter(p=>p.cat===c.k).length;
-    return `<button type="button" class="chip" data-cat="${c.k}" aria-pressed="${state.cats.has(c.k)}"><span class="dot" style="background:${color(c.k)}">${ICON[c.k]}</span>${esc(c.label)} <span class="n">${n}</span></button>`; }).join('');
-}
-chipsEl.addEventListener('click',e=>{
-  const b=e.target.closest('.chip'); if(!b) return; const k=b.dataset.cat;
-  // first click from "all on" isolates the category; otherwise toggle
-  if(state.cats.size===CATS.length){ state.cats=new Set([k]); }
-  else if(state.cats.has(k)){ state.cats.delete(k); if(!state.cats.size) state.cats=new Set(CATS.map(c=>c.k)); }
-  else state.cats.add(k);
-  renderChips(); update(true);
-});
-const hoodSel=document.getElementById('hood');
-const hoodCounts={}; PLACES.forEach(p=>hoodCounts[p.hood]=(hoodCounts[p.hood]||0)+1);
-Object.keys(hoodCounts).sort((a,b)=>a.localeCompare(b)).forEach(h=>{ const o=document.createElement('option'); o.value=h; o.textContent=`${h} (${hoodCounts[h]})`; hoodSel.appendChild(o); });
-hoodSel.addEventListener('change',()=>{ state.hood=hoodSel.value; update(true); });
-const qEl=document.getElementById('q');
-qEl.addEventListener('input',()=>{ state.q=qEl.value.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); update(false); });
-document.querySelectorAll('[data-show]').forEach(b=>b.addEventListener('click',()=>{ state.show=b.dataset.show;
-  document.querySelectorAll('[data-show]').forEach(x=>x.setAttribute('aria-pressed',x===b)); update(true); }));
-document.querySelectorAll('[data-group]').forEach(b=>{ b.setAttribute('aria-pressed',b.dataset.group===state.group);
-  b.addEventListener('click',()=>{ state.group=b.dataset.group; try{localStorage.setItem(KEY+'-group',state.group);}catch(e){}
-  document.querySelectorAll('[data-group]').forEach(x=>x.setAttribute('aria-pressed',x===b)); renderList(visible()); }); });
-
-// ---- list ----
-const listEl=document.getElementById('list');
-function itemHtml(p){
-  const w=want.has(p.id), b=been.has(p.id);
-  return `<div class="item${state.sel===p.id?' sel':''}" data-id="${p.id}" role="button" tabindex="0" aria-label="${esc(fullName(p))}, ${esc(p.style)}">
-    <span class="pinmini" style="background:${color(p.cat)}">${ICON[p.cat]}</span>
-    <div><div class="nm">${esc(p.name)}${p.branch?` <small>· ${esc(p.branch)}</small>`:''}</div>
-    <div class="meta">${esc(p.style)}${state.group==='cat'?` <span class="h">· ${esc(p.hood)}</span>`:''}</div></div>
-    <div class="marks">
-      <button type="button" class="mk want" data-act="want" data-id="${p.id}" aria-pressed="${w}" title="Want to go" aria-label="Want to go: ${esc(fullName(p))}">${w?SVG.star:SVG.starO}</button>
-      <button type="button" class="mk been" data-act="been" data-id="${p.id}" aria-pressed="${b}" title="Been" aria-label="Been: ${esc(fullName(p))}">${b?SVG.check:SVG.checkO}</button>
-    </div></div>`;
-}
-function renderList(vis){
-  if(!vis.length){ listEl.innerHTML=`<div class="empty">No places match these filters.<br><button type="button" id="reset">Clear filters</button></div>`;
-    document.getElementById('reset').onclick=resetFilters; return; }
-  const groups=new Map();
-  if(state.group==='cat'){ CATS.forEach(c=>{ const g=vis.filter(p=>p.cat===c.k); if(g.length) groups.set(c.label,g); }); }
-  else { const by={}; vis.forEach(p=>(by[p.hood]=by[p.hood]||[]).push(p));
-    Object.keys(by).sort((a,b)=>by[b].length-by[a].length||a.localeCompare(b)).forEach(h=>groups.set(h,by[h])); }
-  let html=''; for(const [g,items] of groups){
-    items.sort((a,b)=>state.group==='cat'?a.name.localeCompare(b.name):(CATS.findIndex(c=>c.k===a.cat)-CATS.findIndex(c=>c.k===b.cat))||a.name.localeCompare(b.name));
-    html+=`<section class="group"><h2>${esc(g)}<span>${items.length}</span></h2>${items.map(itemHtml).join('')}</section>`; }
-  listEl.innerHTML=html;
-}
-function resetFilters(){ state.cats=new Set(CATS.map(c=>c.k)); state.q=''; qEl.value=''; state.hood=''; hoodSel.value=''; state.show='all';
-  document.querySelectorAll('[data-show]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.show==='all')); renderChips(); update(true); }
-listEl.addEventListener('click',e=>{
-  const act=e.target.closest('[data-act]'); if(act){ e.stopPropagation(); toggleMark(+act.dataset.id,act.dataset.act); return; }
-  const it=e.target.closest('.item'); if(it) focusPlace(+it.dataset.id);
-});
-listEl.addEventListener('keydown',e=>{ if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('item')){ e.preventDefault(); focusPlace(+e.target.dataset.id); } });
-document.getElementById('map').addEventListener('click',e=>{ const act=e.target.closest('[data-act]'); if(act) toggleMark(+act.dataset.id,act.dataset.act); });
-
-function markSelInList(){ listEl.querySelectorAll('.item').forEach(el=>el.classList.toggle('sel',+el.dataset.id===state.sel)); }
-function select(id){
-  const prev=state.sel; state.sel=id;
-  if(prev&&prev!==id){ const pp=PLACES.find(x=>x.id===prev); if(pp) refreshPin(pp); }
-  const p=PLACES.find(x=>x.id===id); refreshPin(p); markSelInList();
-  const el=listEl.querySelector(`.item[data-id="${id}"]`);
-  if(el && window.matchMedia('(min-width: 821px)').matches){ const r=el.getBoundingClientRect(), lr=listEl.getBoundingClientRect(); if(r.top<lr.top+40||r.bottom>lr.bottom) el.scrollIntoView({block:'center',behavior:'smooth'}); }
-}
-function focusPlace(id){
-  const p=PLACES.find(x=>x.id===id), m=markers[id];
-  if(!map.hasLayer(m)) m.addTo(map);
-  const narrow=window.matchMedia('(max-width: 820px)').matches;
-  if(narrow) document.querySelector('.mapwrap').scrollIntoView({behavior:'smooth',block:'start'});
-  map.flyTo([p.lat,p.lng],Math.max(map.getZoom(),15),{duration:.6});
-  map.once('moveend',()=>m.openPopup());
-}
-function toggleMark(id,kind){
-  const set=kind==='want'?want:been; set.has(id)?set.delete(id):set.add(id);
-  if(kind==='been'&&been.has(id)) want.delete(id);
-  saveMarks(); const p=PLACES.find(x=>x.id===id); refreshPin(p);
-  const m=markers[id]; if(m.isPopupOpen()) m.setPopupContent(popupHtml(p));
-  update(false,true);
-}
-
-// ---- update ----
-function update(fit,keepMap){
-  const vis=visible(), ids=new Set(vis.map(p=>p.id));
-  PLACES.forEach(p=>{ const m=markers[p.id], on=ids.has(p.id);
-    if(on&&!map.hasLayer(m)) m.addTo(map);
-    if(!on&&map.hasLayer(m)){ if(m.isPopupOpen()&&keepMap){} else map.removeLayer(m); } });
-  document.getElementById('t-show').textContent=vis.length;
-  document.getElementById('t-want').textContent=want.size;
-  document.getElementById('t-been').textContent=been.size;
-  document.getElementById('total').textContent=PLACES.length;
-  renderList(vis);
-  if(fit&&vis.length){ const b=L.latLngBounds(vis.map(p=>[p.lat,p.lng])); map.flyToBounds(b,{padding:[40,40],maxZoom:15.5,duration:.5}); }
-}
-renderChips(); update(false);
-setTimeout(()=>map.invalidateSize(),0); window.addEventListener('resize',()=>map.invalidateSize());
+/*__SCRIPT__*/
 </script>

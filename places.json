@@ -10,7 +10,8 @@
   "lat": 41.89906,
   "lng": 12.476209,
   "blurb": "Family-run trattoria a few steps from the Pantheon.",
-  "guide": "The Gargioli family has served Roman classics here since 1961: fettuccine with chicken innards, slow-cooked tripe, braised artichokes, and puntarelle with anchovy dressing."
+  "guide": "The Gargioli family has served Roman classics here since 1961: fettuccine with chicken innards, slow-cooked tripe, braised artichokes, and puntarelle with anchovy dressing.",
+  "region": "roma"
  },
  {
   "id": 2,
@@ -23,7 +24,8 @@
   "lat": 41.897284,
   "lng": 12.468648,
   "blurb": "Centro sibling of Cesare al Casaletto, between Campo de' Fiori and Via Giulia.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 3,
@@ -36,7 +38,8 @@
   "lat": 41.876909,
   "lng": 12.44077,
   "blurb": "Neighborhood trattoria at the end of the 8 tram line, known for fritti and pasta.",
-  "guide": "New ownership brought refined technique while keeping the neighborhood spirit: food that feels traditional, executed with more precision."
+  "guide": "New ownership brought refined technique while keeping the neighborhood spirit: food that feels traditional, executed with more precision.",
+  "region": "roma"
  },
  {
   "id": 4,
@@ -49,7 +52,8 @@
   "lat": 41.876137,
   "lng": 12.54723,
   "blurb": "Busy, inexpensive neighborhood osteria with a daily chalkboard menu.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 5,
@@ -62,7 +66,8 @@
   "lat": 41.874079,
   "lng": 12.468615,
   "blurb": "Family trattoria with Roman and Umbrian dishes and roasts from the wood oven.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 6,
@@ -75,7 +80,8 @@
   "lat": 41.879349,
   "lng": 12.475812,
   "blurb": "Testaccio trattoria for Roman classics and heirloom local vegetables.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 7,
@@ -88,7 +94,8 @@
   "lat": 41.896283,
   "lng": 12.472321,
   "blurb": "Roman pastas, meatballs and seasonal sides near Campo de' Fiori.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 8,
@@ -101,7 +108,8 @@
   "lat": 41.853435,
   "lng": 12.486766,
   "blurb": "'Cucina di mercato' trattoria with a focus on quinto quarto and Roman classics.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 9,
@@ -114,7 +122,8 @@
   "lat": 41.888272,
   "lng": 12.473725,
   "blurb": "Also called Panattoni: marble tables, ultra-thin Roman pizza, supplì and baccalà.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 10,
@@ -127,7 +136,8 @@
   "lat": 41.874908,
   "lng": 12.541146,
   "blurb": "'Pizzeria romanesca' for crisp, thin Roman pizza and fritti.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 11,
@@ -140,7 +150,8 @@
   "lat": 41.875734,
   "lng": 12.44768,
   "blurb": "Long-running Monteverde pizzeria with creative monthly pies and deep wine and beer lists.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 12,
@@ -153,7 +164,8 @@
   "lat": 41.891794,
   "lng": 12.469029,
   "blurb": "Thin, crisp 'scrocchiarella' Roman pizza and creative supplì.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 13,
@@ -166,7 +178,8 @@
   "lat": 41.87464,
   "lng": 12.46901,
   "blurb": "Two-floor branch just across Ponte Testaccio.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 14,
@@ -179,7 +192,8 @@
   "lat": 41.856185,
   "lng": 12.566725,
   "blurb": "Tuscolano branch of the thin-crust pizza group.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 15,
@@ -192,7 +206,8 @@
   "lat": 41.880868,
   "lng": 12.505405,
   "blurb": "San Giovanni outpost; mainly takeaway and delivery.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 16,
@@ -205,7 +220,8 @@
   "lat": 41.898049,
   "lng": 12.535057,
   "blurb": "Newest branch, opened September 2026.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 17,
@@ -218,7 +234,8 @@
   "lat": 41.874954,
   "lng": 12.524589,
   "blurb": "Contemporary Neapolitan-style pizza with Roman touches.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 18,
@@ -231,7 +248,8 @@
   "lat": 41.843564,
   "lng": 12.487609,
   "blurb": "Larger branch with plenty of outdoor seating.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 19,
@@ -244,7 +262,8 @@
   "lat": 41.9013,
   "lng": 12.484645,
   "blurb": "Tiny pizzeria near the Trevi Fountain known for airy crusts and top Italian ingredients.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 20,
@@ -257,7 +276,8 @@
   "lat": 41.899758,
   "lng": 12.475922,
   "blurb": "Neapolitan pizza and a serious wine list, near the Pantheon.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 21,
@@ -270,7 +290,8 @@
   "lat": 41.882788,
   "lng": 12.514692,
   "blurb": "Pizza in teglia with toppings finished at the counter.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 22,
@@ -283,7 +304,8 @@
   "lat": 41.829743,
   "lng": 12.473804,
   "blurb": "Francesco Arnesano's sourdough teglia, breads and supplì.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 23,
@@ -296,7 +318,8 @@
   "lat": 41.864774,
   "lng": 12.484997,
   "blurb": "Neighborhood slice shop for thin, crisp Roman teglia.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 24,
@@ -309,7 +332,8 @@
   "lat": 41.906708,
   "lng": 12.446584,
   "blurb": "Gabriele Bonci's slice shop near the Cipro metro stop.",
-  "guide": "The guide credits Bonci with elevating pizza in teglia: long-fermented doughs from stone-milled grains, topped with highly seasonal ingredients."
+  "guide": "The guide credits Bonci with elevating pizza in teglia: long-fermented doughs from stone-milled grains, topped with highly seasonal ingredients.",
+  "region": "roma"
  },
  {
   "id": 25,
@@ -322,7 +346,8 @@
   "lat": 41.867512,
   "lng": 12.485962,
   "blurb": "Tiny slice shop from the Trecca team, prized for a thin, crunchy base.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 26,
@@ -335,7 +360,8 @@
   "lat": 41.882607,
   "lng": 12.48641,
   "blurb": "Small shop selling pre-portioned teglia by the piece.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 27,
@@ -348,7 +374,8 @@
   "lat": 41.894771,
   "lng": 12.47361,
   "blurb": "Small pan-baked pizzette, steps from Campo de' Fiori.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 28,
@@ -361,7 +388,8 @@
   "lat": 41.87741,
   "lng": 12.473384,
   "blurb": "Box 15 in the Testaccio Market: panini filled with Roman braises and offal.",
-  "guide": "Founded by butcher Sergio Esposito and now run by his son. Ciabatta is filled with braised meats and traditional Roman recipes originally developed for family meals."
+  "guide": "Founded by butcher Sergio Esposito and now run by his son. Ciabatta is filled with braised meats and traditional Roman recipes originally developed for family meals.",
+  "region": "roma"
  },
  {
   "id": 29,
@@ -374,7 +402,8 @@
   "lat": 41.874164,
   "lng": 12.467777,
   "blurb": "Kosher fresh-pasta shop and canteen for Roman-Jewish dishes, near Trastevere station.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 30,
@@ -387,7 +416,8 @@
   "lat": 41.87962,
   "lng": 12.473693,
   "blurb": "The original shop: pizza pockets stuffed with Roman stews, plus supplì.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 31,
@@ -400,7 +430,8 @@
   "lat": 41.891471,
   "lng": 12.469948,
   "blurb": "Sit-down Trapizzino with a wine list, by Ponte Sisto.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 32,
@@ -413,7 +444,8 @@
   "lat": 41.937252,
   "lng": 12.465689,
   "blurb": "Trapizzini and supplì with sidewalk seating, open late.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 33,
@@ -426,7 +458,8 @@
   "lat": 41.90666,
   "lng": 12.4566,
   "blurb": "Counter inside the Be.Re. craft-beer bar, near the Vatican.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 34,
@@ -439,7 +472,8 @@
   "lat": 41.898684,
   "lng": 12.503667,
   "blurb": "Stall in the Mercato Centrale food hall at Termini.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 35,
@@ -452,7 +486,8 @@
   "lat": 41.877662,
   "lng": 12.473327,
   "blurb": "Box 18 in the Testaccio Market: a few stools, regional dishes and natural wine.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 36,
@@ -465,7 +500,8 @@
   "lat": 41.897473,
   "lng": 12.467893,
   "blurb": "Supplì and other Roman fried snacks.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 37,
@@ -478,7 +514,8 @@
   "lat": 41.908847,
   "lng": 12.44926,
   "blurb": "Takeaway tramezzini with house pickles and ferments.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 38,
@@ -491,7 +528,8 @@
   "lat": 41.871699,
   "lng": 12.479807,
   "blurb": "Historic family pastry shop: maritozzi, crostate and holiday sweets.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 39,
@@ -504,7 +542,8 @@
   "lat": 41.896756,
   "lng": 12.470643,
   "blurb": "Specialty coffee, laminated pastries and brunch. Moved to this address in 2026.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 40,
@@ -517,7 +556,8 @@
   "lat": 41.874428,
   "lng": 12.479142,
   "blurb": "Pastry lab and café in a former theatre: croissants, maritozzi, cakes.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 41,
@@ -530,7 +570,8 @@
   "lat": 41.885965,
   "lng": 12.519008,
   "blurb": "Pastries and viennoiserie plus fresh pasta and bistro cooking.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 42,
@@ -543,7 +584,8 @@
   "lat": 41.917381,
   "lng": 12.501354,
   "blurb": "Modern pastry shop: cakes, mignon, lievitati and gelato.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 43,
@@ -556,7 +598,8 @@
   "lat": 41.896396,
   "lng": 12.476049,
   "blurb": "Specialty coffee and pastry lab near Largo Argentina.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 44,
@@ -569,7 +612,8 @@
   "lat": 41.903165,
   "lng": 12.488469,
   "blurb": "Specialty café-bakery from the Faro team, uphill from Piazza Barberini.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 45,
@@ -582,7 +626,8 @@
   "lat": 41.867449,
   "lng": 12.489931,
   "blurb": "Neighborhood pastry shop for breakfast pastries, cakes and gelato.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 46,
@@ -595,7 +640,8 @@
   "lat": 41.89419,
   "lng": 12.474432,
   "blurb": "The Roscioli family's café: maritozzi, cornetti and espresso.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 47,
@@ -608,7 +654,8 @@
   "lat": 41.899033,
   "lng": 12.515303,
   "blurb": "Historic chocolate factory with a shop, café and bistro.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 48,
@@ -621,7 +668,8 @@
   "lat": 41.89323,
   "lng": 12.476902,
   "blurb": "Historic kosher bakery: pizza ebraica and ricotta and sour-cherry tart.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 49,
@@ -634,7 +682,8 @@
   "lat": 41.918103,
   "lng": 12.46135,
   "blurb": "Natural gelato, strong on seasonal fruit and unusual flavors.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 50,
@@ -647,7 +696,8 @@
   "lat": 41.894721,
   "lng": 12.474271,
   "blurb": "Gluten-free artisan gelato with inventive flavors.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 51,
@@ -660,7 +710,8 @@
   "lat": 41.895618,
   "lng": 12.493247,
   "blurb": "Gluten-free artisan gelato on a quiet Monti piazza.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 52,
@@ -673,7 +724,8 @@
   "lat": 41.886467,
   "lng": 12.469229,
   "blurb": "Gluten-free artisan gelato near Piazza San Cosimato.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 53,
@@ -686,7 +738,8 @@
   "lat": 41.88962,
   "lng": 12.472562,
   "blurb": "Small natural gelateria using organic and fair-trade ingredients.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 54,
@@ -699,7 +752,8 @@
   "lat": 41.864503,
   "lng": 12.472494,
   "blurb": "Design-minded gelato served in jars, on sticks and as bonbons.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 55,
@@ -712,7 +766,8 @@
   "lat": 41.90917,
   "lng": 12.466853,
   "blurb": "The original shop, known for seasonal fruit flavors.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 56,
@@ -725,7 +780,8 @@
   "lat": 41.909655,
   "lng": 12.476132,
   "blurb": "Central branch near Piazza del Popolo.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 57,
@@ -738,7 +794,8 @@
   "lat": 41.912025,
   "lng": 12.520649,
   "blurb": "Nomentano branch.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 58,
@@ -751,7 +808,8 @@
   "lat": 41.900479,
   "lng": 12.469519,
   "blurb": "Visible lab; herb flavors like sage and raspberry.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 59,
@@ -764,7 +822,8 @@
   "lat": 41.934869,
   "lng": 12.536137,
   "blurb": "Montesacro gelateria for natural, creative flavors and semifreddi.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 60,
@@ -777,7 +836,8 @@
   "lat": 41.87898,
   "lng": 12.462189,
   "blurb": "Neighborhood gelateria with pure, balanced natural flavors.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 61,
@@ -790,7 +850,8 @@
   "lat": 41.897539,
   "lng": 12.467798,
   "blurb": "Natural gelato made with organic milk.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 62,
@@ -803,7 +864,8 @@
   "lat": 41.929877,
   "lng": 12.46491,
   "blurb": "The original shop, near MAXXI.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 63,
@@ -816,7 +878,8 @@
   "lat": 41.906337,
   "lng": 12.470593,
   "blurb": "Branch by Piazza Cavour.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 64,
@@ -829,7 +892,8 @@
   "lat": 41.888156,
   "lng": 12.470467,
   "blurb": "Gelato with a visible lab, classic and creative flavors.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 65,
@@ -842,7 +906,8 @@
   "lat": 41.88302,
   "lng": 12.458535,
   "blurb": "Larger shop with gelato lab, pastry and café.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 66,
@@ -855,7 +920,8 @@
   "lat": 41.88145,
   "lng": 12.485777,
   "blurb": "Claudio Torcè's natural gelato, including savory flavors.",
-  "guide": "The guide calls Claudio Torcè one of modern Roman gelato's most important figures: he trained many of the city's top gelato makers and is known for more than 100 all-natural flavors."
+  "guide": "The guide calls Claudio Torcè one of modern Roman gelato's most important figures: he trained many of the city's top gelato makers and is known for more than 100 all-natural flavors.",
+  "region": "roma"
  },
  {
   "id": 67,
@@ -868,7 +934,8 @@
   "lat": 41.826344,
   "lng": 12.477352,
   "blurb": "EUR shop of the natural-gelato pioneer.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 68,
@@ -881,7 +948,8 @@
   "lat": 41.888829,
   "lng": 12.483394,
   "blurb": "Producers from around Lazio selling direct. Weekends, mornings to mid-afternoon.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 69,
@@ -894,7 +962,8 @@
   "lat": 41.874312,
   "lng": 12.447818,
   "blurb": "Big, affordable Monteverde market for produce and fish. Mornings, Monday to Saturday.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 70,
@@ -907,7 +976,8 @@
   "lat": 41.909384,
   "lng": 12.452724,
   "blurb": "Huge covered market near the Vatican. Mornings, Monday to Saturday.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 71,
@@ -920,7 +990,8 @@
   "lat": 41.877545,
   "lng": 12.473688,
   "blurb": "Covered market mixing produce and butcher stalls with street-food counters.",
-  "guide": "Home to the Mordi e Vai stall, which is now in its second generation."
+  "guide": "Home to the Mordi e Vai stall, which is now in its second generation.",
+  "region": "roma"
  },
  {
   "id": 72,
@@ -933,7 +1004,8 @@
   "lat": 41.904587,
   "lng": 12.477223,
   "blurb": "Tiny covered neighborhood market, about a dozen stalls, near Piazza Borghese.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 73,
@@ -946,7 +1018,8 @@
   "lat": 41.895402,
   "lng": 12.50654,
   "blurb": "Multicultural covered market: spices, halal meat and produce from around the world.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 74,
@@ -959,7 +1032,8 @@
   "lat": 41.885832,
   "lng": 12.472769,
   "blurb": "Artisan cheeses, salumi, anchovies and natural wine.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 75,
@@ -972,7 +1046,8 @@
   "lat": 41.883574,
   "lng": 12.509138,
   "blurb": "Family pizzicheria for salumi, cheese and wine, now with a bistrot.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
  },
  {
   "id": 76,
@@ -985,6 +1060,359 @@
   "lat": 41.878517,
   "lng": 12.504873,
   "blurb": "Cheese stall (boxes 25–26) inside Mercato Latino, with cheeses from small producers.",
-  "guide": null
+  "guide": null,
+  "region": "roma"
+ },
+ {
+  "id": 101,
+  "region": "puglia",
+  "name": "Panificio Fiore",
+  "branch": null,
+  "cat": "teglia",
+  "style": "Bakery (focaccia)",
+  "hood": "Bari",
+  "address": "Strada Palazzo di Città 38, 70122 Bari",
+  "lat": 41.12969,
+  "lng": 16.87089,
+  "blurb": "Bari Vecchia bakery famous for focaccia baked in oil-drenched iron pans: crisp underneath, spongy inside.",
+  "guide": null,
+  "order": "The focaccia topped with tomatoes and olives (watch for pits).",
+  "warn": null
+ },
+ {
+  "id": 102,
+  "region": "puglia",
+  "name": "Di Cosimo",
+  "branch": null,
+  "cat": "pizzeria",
+  "style": "Pizzeria & panzerotti",
+  "hood": "Bari",
+  "address": "Via Giovanni Modugno 31, 70124 Bari",
+  "lat": 41.105908,
+  "lng": 16.867059,
+  "blurb": "A Bari landmark for pizza and panzerotti, pizza dough stuffed with mozzarella and tomato and deep-fried.",
+  "guide": null,
+  "order": "Queue for takeout, or look for a table in the side room.",
+  "warn": null
+ },
+ {
+  "id": 103,
+  "region": "puglia",
+  "name": "Da Tuccino",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Seafood restaurant",
+  "hood": "Polignano a Mare",
+  "address": "Contrada Santa Caterina 69/F, 70044 Polignano a Mare",
+  "lat": 41.001584,
+  "lng": 17.202399,
+  "blurb": "Upscale seafood restaurant on the sea, with some of the best pesce crudo in the province.",
+  "guide": null,
+  "order": "The crudi, octopus salad and spaghetti con le cozze.",
+  "warn": "Pin is approximate (the address is a rural contrada); the Directions link finds the restaurant."
+ },
+ {
+  "id": 104,
+  "region": "puglia",
+  "name": "Super Mago del Gelo",
+  "branch": null,
+  "cat": "gelato",
+  "style": "Granita & gelato",
+  "hood": "Polignano a Mare",
+  "address": "Piazza Giuseppe Garibaldi 22, 70044 Polignano a Mare",
+  "lat": 40.995242,
+  "lng": 17.218808,
+  "blurb": "Granita specialist; each portion comes with two flavors.",
+  "guide": null,
+  "order": "Gelso nero (black mulberry) and mandorla (almond). Pay at the register first, and add panna if you want it.",
+  "warn": null
+ },
+ {
+  "id": 105,
+  "region": "puglia",
+  "name": "Lido Bianco",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Seafood restaurant",
+  "hood": "Monopoli",
+  "address": "Via Procaccia 4, 70043 Monopoli",
+  "lat": 40.948283,
+  "lng": 17.30655,
+  "blurb": "Seafront restaurant by Porto Bianco beach, recommended for more crudi.",
+  "guide": null,
+  "order": null,
+  "warn": null
+ },
+ {
+  "id": 106,
+  "region": "puglia",
+  "name": "La Rotonda",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Seaside seafood shack",
+  "hood": "Fasano",
+  "address": "SP90 Litoranea Savelletri–Torre Canne, 72015 Fasano",
+  "lat": 40.856808,
+  "lng": 17.438628,
+  "blurb": "No-frills shack with a patio over the water on the coast road between Savelletri and Torre Canne.",
+  "guide": null,
+  "order": "Sea urchins in season, served with bread to scoop the roe, plus grilled octopus and cozze fritte.",
+  "warn": "Also listed as La Rotonda (Da Rosa); don't confuse it with La Rotonda 2 in Torre Canne village."
+ },
+ {
+  "id": 107,
+  "region": "puglia",
+  "name": "L'Aratro",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Trattoria",
+  "hood": "Alberobello",
+  "address": "Via Monte San Michele 27, 70011 Alberobello",
+  "lat": 40.782386,
+  "lng": 17.237132,
+  "blurb": "An alternative to Alberobello's tourist traps, run by a sommelier who cooks with Slow Food products.",
+  "guide": null,
+  "order": "Orecchiette con cime di rapa, fave e cicoria, capocollo and local cheeses.",
+  "warn": null
+ },
+ {
+  "id": 108,
+  "region": "puglia",
+  "name": "La Succursale",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Pizzeria & restaurant",
+  "hood": "Lecce",
+  "address": "Viale dell'Università 15, 73100 Lecce",
+  "lat": 40.3566904,
+  "lng": 18.1667068,
+  "blurb": "One of the few Lecce restaurants where she says you'll eat well.",
+  "guide": null,
+  "order": null,
+  "warn": null
+ },
+ {
+  "id": 109,
+  "region": "puglia",
+  "name": "Quanto Basta",
+  "branch": null,
+  "cat": "bar",
+  "style": "Cocktail bar",
+  "hood": "Lecce",
+  "address": "Via Guglielmo Paladini 17, 73100 Lecce",
+  "lat": 40.3510009,
+  "lng": 18.1695895,
+  "blurb": "Mixes some of the best cocktails in southern Italy.",
+  "guide": null,
+  "order": null,
+  "warn": null
+ },
+ {
+  "id": 110,
+  "region": "puglia",
+  "name": "Caffè Alvino",
+  "branch": null,
+  "cat": "bar",
+  "style": "Bar & pasticceria",
+  "hood": "Lecce",
+  "address": "Piazza Sant'Oronzo 30, 73100 Lecce",
+  "lat": 40.352794,
+  "lng": 18.173115,
+  "blurb": "Bar and caffè on the main piazza, and her first stop in Lecce every time.",
+  "guide": null,
+  "order": "A rustico (puff pastry with béchamel, mozzarella, tomato and black pepper) and a pasticciotto, eaten standing at the bar.",
+  "warn": null
+ },
+ {
+  "id": 111,
+  "region": "puglia",
+  "name": "Pasticceria Citiso",
+  "branch": null,
+  "cat": "sweets",
+  "style": "Pasticceria",
+  "hood": "Lecce",
+  "address": "Via Guglielmo Oberdan 129, 73100 Lecce",
+  "lat": 40.3529461,
+  "lng": 18.1855842,
+  "blurb": "Pastry shop she recommends for pasticciotti, cream-filled shortcrust tarts.",
+  "guide": null,
+  "order": null,
+  "warn": null
+ },
+ {
+  "id": 112,
+  "region": "puglia",
+  "name": "Gelateria Natale",
+  "branch": null,
+  "cat": "gelato",
+  "style": "Gelateria & pasticceria",
+  "hood": "Lecce",
+  "address": "Via Salvatore Trinchese 7, 73100 Lecce",
+  "lat": 40.3533731,
+  "lng": 18.1734612,
+  "blurb": "Gelateria and pastry shop off Piazza Sant'Oronzo, known for flavors based on local sweets.",
+  "guide": null,
+  "order": "Gelato al pasticciotto and gelato al mustazzolo.",
+  "warn": null
+ },
+ {
+  "id": 113,
+  "region": "puglia",
+  "name": "Avio",
+  "branch": null,
+  "cat": "bar",
+  "style": "Coffee bar",
+  "hood": "Lecce",
+  "address": "Via Salvatore Trinchese 16, 73100 Lecce",
+  "lat": 40.353573,
+  "lng": 18.174111,
+  "blurb": "Coffee bar near the Castello pouring a special blend of local Quarta coffee.",
+  "guide": null,
+  "order": "The espressino freddo: whipped cream, espresso, cremino and caramel in a goblet.",
+  "warn": "Closed for a refit in late 2024; check it has reopened before you go."
+ },
+ {
+  "id": 114,
+  "region": "puglia",
+  "name": "Le Zie",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Trattoria (cucina casareccia)",
+  "hood": "Lecce",
+  "address": "Via Colonnello Archimede Costadura 19, 73100 Lecce",
+  "lat": 40.3574084,
+  "lng": 18.1749706,
+  "blurb": "Home-style cooking with views into the kitchen.",
+  "guide": null,
+  "order": "The antipasto misto, fave e cicoria and pezzetti di cavallo.",
+  "warn": "Her more recent post says it was a letdown on her last visit."
+ },
+ {
+  "id": 115,
+  "region": "puglia",
+  "name": "Pasticceria Nobile",
+  "branch": null,
+  "cat": "sweets",
+  "style": "Pasticceria & bar",
+  "hood": "San Cataldo",
+  "address": "Via Marco Polo 9, 73100 San Cataldo (Lecce)",
+  "lat": 40.389775,
+  "lng": 18.30283,
+  "blurb": "Hole-in-the-wall on the sea that she calls the best pasticciotti in the region, turned out hot all day.",
+  "guide": null,
+  "order": null,
+  "warn": null
+ },
+ {
+  "id": 116,
+  "region": "puglia",
+  "name": "L'Orecchietta",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Trattoria",
+  "hood": "Guagnano",
+  "address": "Via Vittorio Veneto 49, 73010 Guagnano",
+  "lat": 40.3996144,
+  "lng": 17.9529814,
+  "blurb": "Family-run trattoria, once a pasta shop, serving traditional food cafeteria style with an excellent local wine list.",
+  "guide": null,
+  "order": null,
+  "warn": "Open at lunch, closed in the afternoon, then open again until 8 PM."
+ },
+ {
+  "id": 117,
+  "region": "puglia",
+  "name": "Caffè Parisi",
+  "branch": null,
+  "cat": "bar",
+  "style": "Bar",
+  "hood": "Nardò",
+  "address": "Piazza Antonio Salandra 38, 73048 Nardò",
+  "lat": 40.1793141,
+  "lng": 18.0314405,
+  "blurb": "Bar on the main square with a great spirits selection and a pretty patio for aperitivo or an after-dinner drink.",
+  "guide": null,
+  "order": null,
+  "warn": null
+ },
+ {
+  "id": 118,
+  "region": "puglia",
+  "name": "Peccato di Vino",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Restaurant",
+  "hood": "Otranto",
+  "address": "Via Rondachi 7, 73028 Otranto",
+  "lat": 40.1460795,
+  "lng": 18.4913673,
+  "blurb": "Her pick if you have to eat in Otranto, which she otherwise calls full of tourist traps.",
+  "guide": null,
+  "order": null,
+  "warn": null
+ },
+ {
+  "id": 119,
+  "region": "puglia",
+  "name": "Farmacia dei Sani",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Restaurant",
+  "hood": "Ruffano",
+  "address": "Piazza del Popolo 14, 73049 Ruffano",
+  "lat": 39.985026,
+  "lng": 18.247706,
+  "blurb": "Very good cooking, though a bit fancier than typical Salento fare.",
+  "guide": null,
+  "order": null,
+  "warn": null
+ },
+ {
+  "id": 120,
+  "region": "puglia",
+  "name": "Rua de Li Travaj",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Trattoria",
+  "hood": "Patù",
+  "address": "Via Felice Cavallotti 44, 73053 Patù",
+  "lat": 39.841449,
+  "lng": 18.338567,
+  "blurb": "Where to go for traditional Salento dishes.",
+  "guide": null,
+  "order": null,
+  "warn": null
+ },
+ {
+  "id": 121,
+  "region": "puglia",
+  "name": "Bleu Salento",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Seafood restaurant",
+  "hood": "Gallipoli",
+  "address": "Lungomare Guglielmo Marconi, 73014 Gallipoli",
+  "lat": 40.057184,
+  "lng": 17.983091,
+  "blurb": "A reliable option if you're eating in Gallipoli, at the Bleu Salento marina.",
+  "guide": null,
+  "order": null,
+  "warn": null
+ },
+ {
+  "id": 122,
+  "region": "puglia",
+  "name": "Le Macàre",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Restaurant",
+  "hood": "Alezio",
+  "address": "Via Mariana Albina 140, 73011 Alezio",
+  "lat": 40.06725,
+  "lng": 18.06107,
+  "blurb": "Her pick for properly good food near Gallipoli, 20 minutes inland.",
+  "guide": null,
+  "order": null,
+  "warn": null
  }
 ]
