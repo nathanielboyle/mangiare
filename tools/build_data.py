@@ -89,4 +89,4 @@ for i,(n,br,c,st,h,ad,bl,gn) in enumerate(R):
         g=geocode(ad); assert g and g[0]=='exact',(n,g); lat,lng=g[3],g[4]; src='civic'
     out.append(dict(id=i+1,name=n,branch=br,cat=c,style=st,hood=h,address=ad+", Roma",lat=round(lat,6),lng=round(lng,6),blurb=bl,guide=gn))
 print(len(out))
-json.dump(out,open('/home/user/clubstack/rome-food-map/places.json','w'),ensure_ascii=False,indent=1)
+json.dump(out,open('places.json','w'),ensure_ascii=False,indent=1)

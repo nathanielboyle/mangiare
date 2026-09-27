@@ -47,7 +47,7 @@ P=[
 ("Le Macàre",TR,"Restaurant","Alezio","Via Mariana Albina 140, 73011 Alezio",40.06725,18.06107,
  "Her pick for properly good food near Gallipoli, 20 minutes inland.",None,None),
 ]
-root='/home/user/clubstack/rome-food-map/'
+root=''  # run from the repository root
 data=json.load(open(root+'places.json'))
 data=[d for d in data if d.get('region')!='puglia']
 for d in data: d['region']='roma'

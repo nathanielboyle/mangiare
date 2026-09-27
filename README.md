@@ -7,11 +7,11 @@ An interactive food map with two regions, switched at the top of the page (`#pug
 
 This is an unofficial companion map.
 
-Open `index.html` from a local web server (for example, `python3 -m http.server` in this folder). The map tiles load from `tiles/`, so opening the file directly from disk won't show the basemap.
+Open `index.html` from a local web server (for example, `python3 -m http.server` in the repository root). The map tiles load from `tiles/`, so opening the file directly from disk won't show the basemap.
 
 ## GitHub Pages (phone and offline)
 
-`.github/workflows/pages.yml` builds a standalone copy of the site (`python3 rome-food-map/src/build.py --site _site`) and deploys it to GitHub Pages on every push to `main` that touches this folder. You can also run it by hand from the Actions tab. The site is published at https://nathanielboyle.github.io/clubstack/.
+`.github/workflows/pages.yml` builds a standalone copy of the site (`python3 src/build.py --site _site`) and deploys it to GitHub Pages on every push to `main`. You can also run it by hand from the Actions tab. The site is published at https://nathanielboyle.github.io/mangiare/.
 
 The Pages build adds things the claude.ai artifact can't have:
 
