@@ -298,5 +298,45 @@ function update(fit,keepMap){
   renderList(vis);
   if(fit&&vis.length){ map.flyToBounds(vis.map(p=>[p.lat,p.lng]),{padding:[40,40],maxZoom:15.5,duration:.5}); }
 }
+// ---- offline (GitHub Pages build only; the artifact sandbox has no service workers) ----
+const standalone = document.body.hasAttribute('data-standalone') && 'serviceWorker' in navigator && 'caches' in window;
+let offlineList=null;
+const offEl=document.getElementById('offline');
+async function offlineStatus(){
+  if(!standalone||!offEl) return;
+  offEl.hidden=false;
+  try{ if(!offlineList) offlineList=await (await fetch('offline.json')).json(); }catch(e){ offEl.hidden=true; return; }
+  const th=isDark()?'dark':'light', set=(offlineList[state.region]||{})[th]; if(!set){ offEl.hidden=true; return; }
+  const cache=await caches.open('tiles-v1'); let have=0;
+  const keys=new Set((await cache.keys()).map(r=>new URL(r.url).pathname));
+  const base=new URL('.',location.href).pathname;
+  set.files.forEach(f=>{ if(keys.has(base+f)) have++; });
+  const mb=Math.round(set.bytes/1e6), name=REGIONS[state.region].name;
+  const btn=offEl.querySelector('button'), msg=offEl.querySelector('span');
+  if(have>=set.files.length){ btn.hidden=true; msg.textContent=`${name} map saved for offline use (${th} theme).`; }
+  else { btn.hidden=false; btn.disabled=false; btn.textContent=`Save ${name} map for offline (${mb} MB)`;
+    msg.textContent=have?`${Math.round(100*have/set.files.length)}% saved`:''; }
+}
+async function saveOffline(){
+  const th=isDark()?'dark':'light', set=offlineList[state.region][th];
+  const btn=offEl.querySelector('button'), msg=offEl.querySelector('span'); btn.disabled=true;
+  try{ if(navigator.storage&&navigator.storage.persist) await navigator.storage.persist(); }catch(e){}
+  const cache=await caches.open('tiles-v1'); let done=0, failed=0, i=0;
+  async function worker(){ while(i<set.files.length){ const f=set.files[i++];
+    try{ if(!(await cache.match(f))) await cache.add(f); }catch(e){ failed++; }
+    done++; if(done%8===0||done===set.files.length) msg.textContent=`Saving… ${Math.round(100*done/set.files.length)}%`; } }
+  await Promise.all(Array.from({length:6},worker));
+  if(failed){ msg.textContent=`${failed} tiles didn't download. Check your connection and try again.`; btn.disabled=false; }
+  else offlineStatus();
+}
+if(standalone){
+  navigator.serviceWorker.register('sw.js').catch(()=>{});
+  offEl.querySelector('button').addEventListener('click',saveOffline);
+  document.querySelectorAll('[data-region]').forEach(b=>b.addEventListener('click',()=>setTimeout(offlineStatus,0)));
+  new MutationObserver(()=>setTimeout(offlineStatus,0)).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>setTimeout(offlineStatus,0)); }catch(e){}
+  offlineStatus();
+}
+
 setRegion(state.region,false); zoomClass();
 setTimeout(()=>map.invalidateSize(),0); window.addEventListener('resize',()=>map.invalidateSize());

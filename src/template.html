@@ -57,6 +57,9 @@ h1 em{font-style:italic;font-weight:500;color:var(--ochre)}
 .src a{color:inherit;text-decoration-color:var(--line-2);text-underline-offset:2px}
 .tally{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
 .tally b{color:var(--ink);font-weight:600}
+.offline{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-2)}
+.offline button{border:1px solid var(--line-2);background:var(--raised);border-radius:8px;padding:5px 10px;font-size:12.5px;font-weight:500;cursor:pointer}
+.offline button:disabled{opacity:.6;cursor:progress}
 .controls{padding:4px 22px 14px;display:grid;gap:10px;border-bottom:1px solid var(--line)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line-2);background:transparent;border-radius:999px;padding:4px 10px 4px 5px;font-size:13px;cursor:pointer;color:var(--ink-2);transition:background .15s,border-color .15s,opacity .15s}
@@ -179,6 +182,7 @@ details.notes .credit{margin:12px 0 0;font-size:11.5px;color:var(--muted)}
       <div class="eyebrow"><span id="rname">Rome</span> · <span id="total">76</span> places</div>
       <h1 id="title">Mangiare <em>a</em> Roma</h1>
       <p class="src" id="src"></p>
+      <div class="offline" id="offline" hidden aria-live="polite"><button type="button"></button><span></span></div>
       <div class="tally" aria-live="polite"><span><b id="t-show">76</b> shown</span><span><b id="t-want">0</b> want to go</span><span><b id="t-been">0</b> been</span></div>
     </header>
     <div class="controls">

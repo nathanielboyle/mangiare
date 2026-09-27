@@ -9,6 +9,18 @@ This is an unofficial companion map.
 
 Open `index.html` from a local web server (for example, `python3 -m http.server` in this folder). The map tiles load from `tiles/`, so opening the file directly from disk won't show the basemap.
 
+## GitHub Pages (phone and offline)
+
+`.github/workflows/pages.yml` builds a standalone copy of the site (`python3 rome-food-map/src/build.py --site _site`) and deploys it to GitHub Pages on every push to `main` that touches this folder. You can also run it by hand from the Actions tab. The site is published at https://nathanielboyle.github.io/clubstack/.
+
+The Pages build adds things the claude.ai artifact can't have:
+
+- A web app manifest and icons, so **Add to Home Screen** opens the map full-screen like an app.
+- A service worker that keeps the page and every map tile you've viewed available offline.
+- A **Save … map for offline** button that downloads a region's tiles for the current light or dark theme: about 24 MB (light) or 16 MB (dark) for Rome, and 6 MB or 4 MB for Puglia.
+
+"Directions" links still need a connection, since they open Google Maps.
+
 ## Features
 
 - A pin for each place, colored and iconed by style, with a popup showing the name, style, address, a short description, any note the guide gives, and a Google Maps directions link.
@@ -28,6 +40,7 @@ Files:
 
 - `places.json`: the dataset.
 - `src/template.html`, `src/app.js` and `src/build.py`: assemble `index.html`, inlining Leaflet's CSS, the script and the data.
+- `src/site/`: the extra files for the Pages build (service worker, manifest, icons).
 - `tools/`: the Overture fetch, geocoding, dataset and tile scripts used to build the map. They expect the downloaded parquet files in `geo/`.
 
 To rebuild the page after editing `places.json` or the template, run `python3 src/build.py`.

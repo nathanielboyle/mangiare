@@ -718,6 +718,9 @@ h1 em{font-style:italic;font-weight:500;color:var(--ochre)}
 .src a{color:inherit;text-decoration-color:var(--line-2);text-underline-offset:2px}
 .tally{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
 .tally b{color:var(--ink);font-weight:600}
+.offline{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-2)}
+.offline button{border:1px solid var(--line-2);background:var(--raised);border-radius:8px;padding:5px 10px;font-size:12.5px;font-weight:500;cursor:pointer}
+.offline button:disabled{opacity:.6;cursor:progress}
 .controls{padding:4px 22px 14px;display:grid;gap:10px;border-bottom:1px solid var(--line)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line-2);background:transparent;border-radius:999px;padding:4px 10px 4px 5px;font-size:13px;cursor:pointer;color:var(--ink-2);transition:background .15s,border-color .15s,opacity .15s}
@@ -840,6 +843,7 @@ details.notes .credit{margin:12px 0 0;font-size:11.5px;color:var(--muted)}
       <div class="eyebrow"><span id="rname">Rome</span> · <span id="total">76</span> places</div>
       <h1 id="title">Mangiare <em>a</em> Roma</h1>
       <p class="src" id="src"></p>
+      <div class="offline" id="offline" hidden aria-live="polite"><button type="button"></button><span></span></div>
       <div class="tally" aria-live="polite"><span><b id="t-show">76</b> shown</span><span><b id="t-want">0</b> want to go</span><span><b id="t-been">0</b> been</span></div>
     </header>
     <div class="controls">
@@ -1189,6 +1193,46 @@ function update(fit,keepMap){
   renderList(vis);
   if(fit&&vis.length){ map.flyToBounds(vis.map(p=>[p.lat,p.lng]),{padding:[40,40],maxZoom:15.5,duration:.5}); }
 }
+// ---- offline (GitHub Pages build only; the artifact sandbox has no service workers) ----
+const standalone = document.body.hasAttribute('data-standalone') && 'serviceWorker' in navigator && 'caches' in window;
+let offlineList=null;
+const offEl=document.getElementById('offline');
+async function offlineStatus(){
+  if(!standalone||!offEl) return;
+  offEl.hidden=false;
+  try{ if(!offlineList) offlineList=await (await fetch('offline.json')).json(); }catch(e){ offEl.hidden=true; return; }
+  const th=isDark()?'dark':'light', set=(offlineList[state.region]||{})[th]; if(!set){ offEl.hidden=true; return; }
+  const cache=await caches.open('tiles-v1'); let have=0;
+  const keys=new Set((await cache.keys()).map(r=>new URL(r.url).pathname));
+  const base=new URL('.',location.href).pathname;
+  set.files.forEach(f=>{ if(keys.has(base+f)) have++; });
+  const mb=Math.round(set.bytes/1e6), name=REGIONS[state.region].name;
+  const btn=offEl.querySelector('button'), msg=offEl.querySelector('span');
+  if(have>=set.files.length){ btn.hidden=true; msg.textContent=`${name} map saved for offline use (${th} theme).`; }
+  else { btn.hidden=false; btn.disabled=false; btn.textContent=`Save ${name} map for offline (${mb} MB)`;
+    msg.textContent=have?`${Math.round(100*have/set.files.length)}% saved`:''; }
+}
+async function saveOffline(){
+  const th=isDark()?'dark':'light', set=offlineList[state.region][th];
+  const btn=offEl.querySelector('button'), msg=offEl.querySelector('span'); btn.disabled=true;
+  try{ if(navigator.storage&&navigator.storage.persist) await navigator.storage.persist(); }catch(e){}
+  const cache=await caches.open('tiles-v1'); let done=0, failed=0, i=0;
+  async function worker(){ while(i<set.files.length){ const f=set.files[i++];
+    try{ if(!(await cache.match(f))) await cache.add(f); }catch(e){ failed++; }
+    done++; if(done%8===0||done===set.files.length) msg.textContent=`Saving… ${Math.round(100*done/set.files.length)}%`; } }
+  await Promise.all(Array.from({length:6},worker));
+  if(failed){ msg.textContent=`${failed} tiles didn't download. Check your connection and try again.`; btn.disabled=false; }
+  else offlineStatus();
+}
+if(standalone){
+  navigator.serviceWorker.register('sw.js').catch(()=>{});
+  offEl.querySelector('button').addEventListener('click',saveOffline);
+  document.querySelectorAll('[data-region]').forEach(b=>b.addEventListener('click',()=>setTimeout(offlineStatus,0)));
+  new MutationObserver(()=>setTimeout(offlineStatus,0)).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>setTimeout(offlineStatus,0)); }catch(e){}
+  offlineStatus();
+}
+
 setRegion(state.region,false); zoomClass();
 setTimeout(()=>map.invalidateSize(),0); window.addEventListener('resize',()=>map.invalidateSize());
 
