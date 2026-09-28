@@ -11,7 +11,15 @@
   "lng": 12.476209,
   "blurb": "Family-run trattoria a few steps from the Pantheon.",
   "guide": "The Gargioli family has served Roman classics here since 1961: fettuccine with chicken innards, slow-cooked tripe, braised artichokes, and puntarelle with anchovy dressing.",
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "eater",
+   "guide"
+  ],
+  "price": "$$$",
+  "hours": "Lunch and dinner",
+  "eaterLabel": "Know before you go",
+  "eater": "Book online exactly one month ahead; tables go fast. Save room for the ricotta and jam torta antica Roma."
  },
  {
   "id": 2,
@@ -25,7 +33,15 @@
   "lng": 12.468648,
   "blurb": "Centro sibling of Cesare al Casaletto, between Campo de' Fiori and Via Giulia.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "eater",
+   "guide"
+  ],
+  "price": "$$$",
+  "hours": "Lunch and dinner",
+  "eaterLabel": "Best for",
+  "eater": "Drinking from the very affordable wine list. Ring the doorbell to get in; try the pan-fried meatballs."
  },
  {
   "id": 3,
@@ -39,7 +55,15 @@
   "lng": 12.44077,
   "blurb": "Neighborhood trattoria at the end of the 8 tram line, known for fritti and pasta.",
   "guide": "New ownership brought refined technique while keeping the neighborhood spirit: food that feels traditional, executed with more precision.",
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "eater",
+   "guide"
+  ],
+  "price": "$$$",
+  "hours": "Lunch and dinner",
+  "eaterLabel": "Getting there",
+  "eater": "Take tram 8, then walk back through Villa Pamphili after lunch. The gricia has cult status."
  },
  {
   "id": 4,
@@ -53,7 +77,10 @@
   "lng": 12.54723,
   "blurb": "Busy, inexpensive neighborhood osteria with a daily chalkboard menu.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 5,
@@ -67,7 +94,15 @@
   "lng": 12.468615,
   "blurb": "Family trattoria with Roman and Umbrian dishes and roasts from the wood oven.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "eater",
+   "guide"
+  ],
+  "price": "$$$",
+  "hours": "Lunch and dinner",
+  "eaterLabel": "Must-try dishes",
+  "eater": "Whatever came out of the wood oven that day: brisket, lasagna (Sundays) or eggplant parm."
  },
  {
   "id": 6,
@@ -81,7 +116,15 @@
   "lng": 12.475812,
   "blurb": "Testaccio trattoria for Roman classics and heirloom local vegetables.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "eater",
+   "guide"
+  ],
+  "price": "$$$",
+  "hours": "Lunch and dinner",
+  "eaterLabel": "Must-try dishes",
+  "eater": "The vegetable sides, like braised zucchini greens and foraged greens salad."
  },
  {
   "id": 7,
@@ -95,7 +138,15 @@
   "lng": 12.472321,
   "blurb": "Roman pastas, meatballs and seasonal sides near Campo de' Fiori.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "eater",
+   "guide"
+  ],
+  "price": "$$$",
+  "hours": "Lunch and dinner",
+  "eaterLabel": "Best for",
+  "eater": "The four-course Roman tasting menu (about €36), one of the city's best deals."
  },
  {
   "id": 8,
@@ -109,7 +160,15 @@
   "lng": 12.486766,
   "blurb": "'Cucina di mercato' trattoria with a focus on quinto quarto and Roman classics.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "eater",
+   "guide"
+  ],
+  "price": "$$$",
+  "hours": "Dinner",
+  "eaterLabel": "Must-try dish",
+  "eater": "The pajata, in any form they serve it."
  },
  {
   "id": 9,
@@ -123,7 +182,10 @@
   "lng": 12.473725,
   "blurb": "Also called Panattoni: marble tables, ultra-thin Roman pizza, supplì and baccalà.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 10,
@@ -137,7 +199,15 @@
   "lng": 12.541146,
   "blurb": "'Pizzeria romanesca' for crisp, thin Roman pizza and fritti.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "eater",
+   "guide"
+  ],
+  "price": "$$",
+  "hours": "Dinner",
+  "eaterLabel": "Must-try dish",
+  "eater": "Start with the margherita to understand the style, then order the seasonal special."
  },
  {
   "id": 11,
@@ -151,7 +221,10 @@
   "lng": 12.44768,
   "blurb": "Long-running Monteverde pizzeria with creative monthly pies and deep wine and beer lists.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 12,
@@ -165,7 +238,15 @@
   "lng": 12.469029,
   "blurb": "Thin, crisp 'scrocchiarella' Roman pizza and creative supplì.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "eater",
+   "guide"
+  ],
+  "price": "$$",
+  "hours": "Dinner; lunch Wed–Sun",
+  "eaterLabel": "Know before you go",
+  "eater": "This Trastevere branch has the best service. The kitchen closes roughly 3:30–6:45 despite the posted hours. Start with the supplì and fried cacio e pepe."
  },
  {
   "id": 13,
@@ -179,7 +260,10 @@
   "lng": 12.46901,
   "blurb": "Two-floor branch just across Ponte Testaccio.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 14,
@@ -193,7 +277,10 @@
   "lng": 12.566725,
   "blurb": "Tuscolano branch of the thin-crust pizza group.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 15,
@@ -207,7 +294,10 @@
   "lng": 12.505405,
   "blurb": "San Giovanni outpost; mainly takeaway and delivery.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 16,
@@ -221,7 +311,10 @@
   "lng": 12.535057,
   "blurb": "Newest branch, opened September 2026.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 17,
@@ -235,7 +328,10 @@
   "lng": 12.524589,
   "blurb": "Contemporary Neapolitan-style pizza with Roman touches.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 18,
@@ -249,7 +345,10 @@
   "lng": 12.487609,
   "blurb": "Larger branch with plenty of outdoor seating.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 19,
@@ -263,7 +362,10 @@
   "lng": 12.484645,
   "blurb": "Tiny pizzeria near the Trevi Fountain known for airy crusts and top Italian ingredients.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 20,
@@ -277,7 +379,10 @@
   "lng": 12.475922,
   "blurb": "Neapolitan pizza and a serious wine list, near the Pantheon.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 21,
@@ -291,7 +396,10 @@
   "lng": 12.514692,
   "blurb": "Pizza in teglia with toppings finished at the counter.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 22,
@@ -305,7 +413,10 @@
   "lng": 12.473804,
   "blurb": "Francesco Arnesano's sourdough teglia, breads and supplì.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 23,
@@ -319,7 +430,10 @@
   "lng": 12.484997,
   "blurb": "Neighborhood slice shop for thin, crisp Roman teglia.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 24,
@@ -333,7 +447,15 @@
   "lng": 12.446584,
   "blurb": "Gabriele Bonci's slice shop near the Cipro metro stop.",
   "guide": "The guide credits Bonci with elevating pizza in teglia: long-fermented doughs from stone-milled grains, topped with highly seasonal ingredients.",
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "eater",
+   "guide"
+  ],
+  "price": "$$",
+  "hours": "All day",
+  "eaterLabel": "Know before you go",
+  "eater": "Go after 3 p.m. (5 p.m. on Sundays) to dodge the worst lines. There's now some seating inside."
  },
  {
   "id": 25,
@@ -347,7 +469,10 @@
   "lng": 12.485962,
   "blurb": "Tiny slice shop from the Trecca team, prized for a thin, crunchy base.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 26,
@@ -361,7 +486,15 @@
   "lng": 12.48641,
   "blurb": "Small shop selling pre-portioned teglia by the piece.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "eater",
+   "guide"
+  ],
+  "price": "$",
+  "hours": "All day",
+  "eaterLabel": "Must-try dish",
+  "eater": "The Ragùver, topped with slow-cooked meat sauce and Parmigiano. Standing room only at outdoor high tops."
  },
  {
   "id": 27,
@@ -375,7 +508,10 @@
   "lng": 12.47361,
   "blurb": "Small pan-baked pizzette, steps from Campo de' Fiori.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 28,
@@ -389,7 +525,10 @@
   "lng": 12.473384,
   "blurb": "Box 15 in the Testaccio Market: panini filled with Roman braises and offal.",
   "guide": "Founded by butcher Sergio Esposito and now run by his son. Ciabatta is filled with braised meats and traditional Roman recipes originally developed for family meals.",
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 29,
@@ -403,7 +542,15 @@
   "lng": 12.467777,
   "blurb": "Kosher fresh-pasta shop and canteen for Roman-Jewish dishes, near Trastevere station.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "eater",
+   "guide"
+  ],
+  "price": "$",
+  "hours": "All day",
+  "eaterLabel": "Must-try dishes",
+  "eater": "The Roman-Jewish concia (fried marinated zucchini) and battered baccalà."
  },
  {
   "id": 30,
@@ -417,7 +564,10 @@
   "lng": 12.473693,
   "blurb": "The original shop: pizza pockets stuffed with Roman stews, plus supplì.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 31,
@@ -431,7 +581,15 @@
   "lng": 12.469948,
   "blurb": "Sit-down Trapizzino with a wine list, by Ponte Sisto.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "eater",
+   "guide"
+  ],
+  "price": "$",
+  "hours": "Lunch to late night",
+  "eaterLabel": "Know before you go",
+  "eater": "This branch has table service and a full bar with Lazio wines."
  },
  {
   "id": 32,
@@ -445,7 +603,10 @@
   "lng": 12.465689,
   "blurb": "Trapizzini and supplì with sidewalk seating, open late.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 33,
@@ -459,7 +620,10 @@
   "lng": 12.4566,
   "blurb": "Counter inside the Be.Re. craft-beer bar, near the Vatican.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 34,
@@ -473,7 +637,10 @@
   "lng": 12.503667,
   "blurb": "Stall in the Mercato Centrale food hall at Termini.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 35,
@@ -487,7 +654,10 @@
   "lng": 12.473327,
   "blurb": "Box 18 in the Testaccio Market: a few stools, regional dishes and natural wine.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 36,
@@ -501,7 +671,10 @@
   "lng": 12.467893,
   "blurb": "Supplì and other Roman fried snacks.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 37,
@@ -515,7 +688,10 @@
   "lng": 12.44926,
   "blurb": "Takeaway tramezzini with house pickles and ferments.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 38,
@@ -529,7 +705,10 @@
   "lng": 12.479807,
   "blurb": "Historic family pastry shop: maritozzi, crostate and holiday sweets.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 39,
@@ -543,7 +722,10 @@
   "lng": 12.470643,
   "blurb": "Specialty coffee, laminated pastries and brunch. Moved to this address in 2026.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 40,
@@ -557,7 +739,10 @@
   "lng": 12.479142,
   "blurb": "Pastry lab and café in a former theatre: croissants, maritozzi, cakes.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 41,
@@ -571,7 +756,10 @@
   "lng": 12.519008,
   "blurb": "Pastries and viennoiserie plus fresh pasta and bistro cooking.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 42,
@@ -585,7 +773,10 @@
   "lng": 12.501354,
   "blurb": "Modern pastry shop: cakes, mignon, lievitati and gelato.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 43,
@@ -599,7 +790,10 @@
   "lng": 12.476049,
   "blurb": "Specialty coffee and pastry lab near Largo Argentina.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 44,
@@ -613,7 +807,10 @@
   "lng": 12.488469,
   "blurb": "Specialty café-bakery from the Faro team, uphill from Piazza Barberini.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 45,
@@ -627,7 +824,10 @@
   "lng": 12.489931,
   "blurb": "Neighborhood pastry shop for breakfast pastries, cakes and gelato.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 46,
@@ -641,7 +841,10 @@
   "lng": 12.474432,
   "blurb": "The Roscioli family's café: maritozzi, cornetti and espresso.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 47,
@@ -655,7 +858,10 @@
   "lng": 12.515303,
   "blurb": "Historic chocolate factory with a shop, café and bistro.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 48,
@@ -669,7 +875,15 @@
   "lng": 12.476902,
   "blurb": "Historic kosher bakery: pizza ebraica and ricotta and sour-cherry tart.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "eater",
+   "guide"
+  ],
+  "price": "$",
+  "hours": "All day",
+  "eaterLabel": "Must-try dish",
+  "eater": "The ricotta and sour-cherry tart; get it before it sells out."
  },
  {
   "id": 49,
@@ -683,7 +897,10 @@
   "lng": 12.46135,
   "blurb": "Natural gelato, strong on seasonal fruit and unusual flavors.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 50,
@@ -697,7 +914,10 @@
   "lng": 12.474271,
   "blurb": "Gluten-free artisan gelato with inventive flavors.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 51,
@@ -711,7 +931,10 @@
   "lng": 12.493247,
   "blurb": "Gluten-free artisan gelato on a quiet Monti piazza.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 52,
@@ -725,7 +948,10 @@
   "lng": 12.469229,
   "blurb": "Gluten-free artisan gelato near Piazza San Cosimato.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 53,
@@ -739,7 +965,10 @@
   "lng": 12.472562,
   "blurb": "Small natural gelateria using organic and fair-trade ingredients.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 54,
@@ -753,7 +982,10 @@
   "lng": 12.472494,
   "blurb": "Design-minded gelato served in jars, on sticks and as bonbons.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 55,
@@ -767,7 +999,10 @@
   "lng": 12.466853,
   "blurb": "The original shop, known for seasonal fruit flavors.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 56,
@@ -781,7 +1016,10 @@
   "lng": 12.476132,
   "blurb": "Central branch near Piazza del Popolo.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 57,
@@ -795,7 +1033,10 @@
   "lng": 12.520649,
   "blurb": "Nomentano branch.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 58,
@@ -809,7 +1050,10 @@
   "lng": 12.469519,
   "blurb": "Visible lab; herb flavors like sage and raspberry.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 59,
@@ -823,7 +1067,10 @@
   "lng": 12.536137,
   "blurb": "Montesacro gelateria for natural, creative flavors and semifreddi.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 60,
@@ -837,7 +1084,10 @@
   "lng": 12.462189,
   "blurb": "Neighborhood gelateria with pure, balanced natural flavors.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 61,
@@ -851,7 +1101,10 @@
   "lng": 12.467798,
   "blurb": "Natural gelato made with organic milk.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 62,
@@ -865,7 +1118,10 @@
   "lng": 12.46491,
   "blurb": "The original shop, near MAXXI.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 63,
@@ -879,7 +1135,10 @@
   "lng": 12.470593,
   "blurb": "Branch by Piazza Cavour.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 64,
@@ -893,7 +1152,10 @@
   "lng": 12.470467,
   "blurb": "Gelato with a visible lab, classic and creative flavors.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 65,
@@ -907,7 +1169,15 @@
   "lng": 12.458535,
   "blurb": "Larger shop with gelato lab, pastry and café.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "eater",
+   "guide"
+  ],
+  "price": "$",
+  "hours": "All day",
+  "eaterLabel": "Know before you go",
+  "eater": "Monteverde for gelato plus specialty coffee and pastries; Trastevere for gelato alone."
  },
  {
   "id": 66,
@@ -921,7 +1191,10 @@
   "lng": 12.485777,
   "blurb": "Claudio Torcè's natural gelato, including savory flavors.",
   "guide": "The guide calls Claudio Torcè one of modern Roman gelato's most important figures: he trained many of the city's top gelato makers and is known for more than 100 all-natural flavors.",
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 67,
@@ -935,7 +1208,10 @@
   "lng": 12.477352,
   "blurb": "EUR shop of the natural-gelato pioneer.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 68,
@@ -949,7 +1225,10 @@
   "lng": 12.483394,
   "blurb": "Producers from around Lazio selling direct. Weekends, mornings to mid-afternoon.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 69,
@@ -963,7 +1242,10 @@
   "lng": 12.447818,
   "blurb": "Big, affordable Monteverde market for produce and fish. Mornings, Monday to Saturday.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 70,
@@ -977,7 +1259,10 @@
   "lng": 12.452724,
   "blurb": "Huge covered market near the Vatican. Mornings, Monday to Saturday.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 71,
@@ -991,7 +1276,15 @@
   "lng": 12.473688,
   "blurb": "Covered market mixing produce and butcher stalls with street-food counters.",
   "guide": "Home to the Mordi e Vai stall, which is now in its second generation.",
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "eater",
+   "guide"
+  ],
+  "price": "$",
+  "hours": "Breakfast and lunch",
+  "eaterLabel": "Must-try shops",
+  "eater": "Mordi e Vai (box 15) for offal sandwiches and Da Corrado (box 18) for cheese, soup and wine. Also Da Artenio (box 90) for pizzette, Casa Manco (box 22) and Sicché (box 37). Open Mon–Sat until 2 p.m."
  },
  {
   "id": 72,
@@ -1005,7 +1298,10 @@
   "lng": 12.477223,
   "blurb": "Tiny covered neighborhood market, about a dozen stalls, near Piazza Borghese.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 73,
@@ -1019,7 +1315,10 @@
   "lng": 12.50654,
   "blurb": "Multicultural covered market: spices, halal meat and produce from around the world.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 74,
@@ -1033,7 +1332,15 @@
   "lng": 12.472769,
   "blurb": "Artisan cheeses, salumi, anchovies and natural wine.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "eater",
+   "guide"
+  ],
+  "price": "$$",
+  "hours": "All day",
+  "eaterLabel": "Best for",
+  "eater": "A high-top table with blue cheese from affineur Andrea Magi and a glass of natural wine."
  },
  {
   "id": 75,
@@ -1047,7 +1354,10 @@
   "lng": 12.509138,
   "blurb": "Family pizzicheria for salumi, cheese and wine, now with a bistrot.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 76,
@@ -1061,7 +1371,10 @@
   "lng": 12.504873,
   "blurb": "Cheese stall (boxes 25–26) inside Mercato Latino, with cheeses from small producers.",
   "guide": null,
-  "region": "roma"
+  "region": "roma",
+  "src": [
+   "guide"
+  ]
  },
  {
   "id": 101,
@@ -1077,7 +1390,10 @@
   "blurb": "Bari Vecchia bakery famous for focaccia baked in oil-drenched iron pans: crisp underneath, spongy inside.",
   "guide": null,
   "order": "The focaccia topped with tomatoes and olives (watch for pits).",
-  "warn": null
+  "warn": null,
+  "src": [
+   "notes"
+  ]
  },
  {
   "id": 102,
@@ -1093,7 +1409,10 @@
   "blurb": "A Bari landmark for pizza and panzerotti, pizza dough stuffed with mozzarella and tomato and deep-fried.",
   "guide": null,
   "order": "Queue for takeout, or look for a table in the side room.",
-  "warn": null
+  "warn": null,
+  "src": [
+   "notes"
+  ]
  },
  {
   "id": 103,
@@ -1109,7 +1428,10 @@
   "blurb": "Upscale seafood restaurant on the sea, with some of the best pesce crudo in the province.",
   "guide": null,
   "order": "The crudi, octopus salad and spaghetti con le cozze.",
-  "warn": "Pin is approximate (the address is a rural contrada); the Directions link finds the restaurant."
+  "warn": "Pin is approximate (the address is a rural contrada); the Directions link finds the restaurant.",
+  "src": [
+   "notes"
+  ]
  },
  {
   "id": 104,
@@ -1125,7 +1447,10 @@
   "blurb": "Granita specialist; each portion comes with two flavors.",
   "guide": null,
   "order": "Gelso nero (black mulberry) and mandorla (almond). Pay at the register first, and add panna if you want it.",
-  "warn": null
+  "warn": null,
+  "src": [
+   "notes"
+  ]
  },
  {
   "id": 105,
@@ -1141,7 +1466,10 @@
   "blurb": "Seafront restaurant by Porto Bianco beach, recommended for more crudi.",
   "guide": null,
   "order": null,
-  "warn": null
+  "warn": null,
+  "src": [
+   "notes"
+  ]
  },
  {
   "id": 106,
@@ -1157,7 +1485,10 @@
   "blurb": "No-frills shack with a patio over the water on the coast road between Savelletri and Torre Canne.",
   "guide": null,
   "order": "Sea urchins in season, served with bread to scoop the roe, plus grilled octopus and cozze fritte.",
-  "warn": "Also listed as La Rotonda (Da Rosa); don't confuse it with La Rotonda 2 in Torre Canne village."
+  "warn": "Also listed as La Rotonda (Da Rosa); don't confuse it with La Rotonda 2 in Torre Canne village.",
+  "src": [
+   "notes"
+  ]
  },
  {
   "id": 107,
@@ -1173,7 +1504,10 @@
   "blurb": "An alternative to Alberobello's tourist traps, run by a sommelier who cooks with Slow Food products.",
   "guide": null,
   "order": "Orecchiette con cime di rapa, fave e cicoria, capocollo and local cheeses.",
-  "warn": null
+  "warn": null,
+  "src": [
+   "notes"
+  ]
  },
  {
   "id": 108,
@@ -1189,7 +1523,10 @@
   "blurb": "One of the few Lecce restaurants where she says you'll eat well.",
   "guide": null,
   "order": null,
-  "warn": null
+  "warn": null,
+  "src": [
+   "notes"
+  ]
  },
  {
   "id": 109,
@@ -1205,7 +1542,10 @@
   "blurb": "Mixes some of the best cocktails in southern Italy.",
   "guide": null,
   "order": null,
-  "warn": null
+  "warn": null,
+  "src": [
+   "notes"
+  ]
  },
  {
   "id": 110,
@@ -1221,7 +1561,10 @@
   "blurb": "Bar and caffè on the main piazza, and her first stop in Lecce every time.",
   "guide": null,
   "order": "A rustico (puff pastry with béchamel, mozzarella, tomato and black pepper) and a pasticciotto, eaten standing at the bar.",
-  "warn": null
+  "warn": null,
+  "src": [
+   "notes"
+  ]
  },
  {
   "id": 111,
@@ -1237,7 +1580,10 @@
   "blurb": "Pastry shop she recommends for pasticciotti, cream-filled shortcrust tarts.",
   "guide": null,
   "order": null,
-  "warn": null
+  "warn": null,
+  "src": [
+   "notes"
+  ]
  },
  {
   "id": 112,
@@ -1253,7 +1599,10 @@
   "blurb": "Gelateria and pastry shop off Piazza Sant'Oronzo, known for flavors based on local sweets.",
   "guide": null,
   "order": "Gelato al pasticciotto and gelato al mustazzolo.",
-  "warn": null
+  "warn": null,
+  "src": [
+   "notes"
+  ]
  },
  {
   "id": 113,
@@ -1269,7 +1618,10 @@
   "blurb": "Coffee bar near the Castello pouring a special blend of local Quarta coffee.",
   "guide": null,
   "order": "The espressino freddo: whipped cream, espresso, cremino and caramel in a goblet.",
-  "warn": "Closed for a refit in late 2024; check it has reopened before you go."
+  "warn": "Closed for a refit in late 2024; check it has reopened before you go.",
+  "src": [
+   "notes"
+  ]
  },
  {
   "id": 114,
@@ -1285,7 +1637,10 @@
   "blurb": "Home-style cooking with views into the kitchen.",
   "guide": null,
   "order": "The antipasto misto, fave e cicoria and pezzetti di cavallo.",
-  "warn": "Her more recent post says it was a letdown on her last visit."
+  "warn": "Her more recent post says it was a letdown on her last visit.",
+  "src": [
+   "notes"
+  ]
  },
  {
   "id": 115,
@@ -1301,7 +1656,10 @@
   "blurb": "Hole-in-the-wall on the sea that she calls the best pasticciotti in the region, turned out hot all day.",
   "guide": null,
   "order": null,
-  "warn": null
+  "warn": null,
+  "src": [
+   "notes"
+  ]
  },
  {
   "id": 116,
@@ -1317,7 +1675,10 @@
   "blurb": "Family-run trattoria, once a pasta shop, serving traditional food cafeteria style with an excellent local wine list.",
   "guide": null,
   "order": null,
-  "warn": "Open at lunch, closed in the afternoon, then open again until 8 PM."
+  "warn": "Open at lunch, closed in the afternoon, then open again until 8 PM.",
+  "src": [
+   "notes"
+  ]
  },
  {
   "id": 117,
@@ -1333,7 +1694,10 @@
   "blurb": "Bar on the main square with a great spirits selection and a pretty patio for aperitivo or an after-dinner drink.",
   "guide": null,
   "order": null,
-  "warn": null
+  "warn": null,
+  "src": [
+   "notes"
+  ]
  },
  {
   "id": 118,
@@ -1349,7 +1713,10 @@
   "blurb": "Her pick if you have to eat in Otranto, which she otherwise calls full of tourist traps.",
   "guide": null,
   "order": null,
-  "warn": null
+  "warn": null,
+  "src": [
+   "notes"
+  ]
  },
  {
   "id": 119,
@@ -1365,7 +1732,10 @@
   "blurb": "Very good cooking, though a bit fancier than typical Salento fare.",
   "guide": null,
   "order": null,
-  "warn": null
+  "warn": null,
+  "src": [
+   "notes"
+  ]
  },
  {
   "id": 120,
@@ -1381,7 +1751,10 @@
   "blurb": "Where to go for traditional Salento dishes.",
   "guide": null,
   "order": null,
-  "warn": null
+  "warn": null,
+  "src": [
+   "notes"
+  ]
  },
  {
   "id": 121,
@@ -1397,7 +1770,10 @@
   "blurb": "A reliable option if you're eating in Gallipoli, at the Bleu Salento marina.",
   "guide": null,
   "order": null,
-  "warn": null
+  "warn": null,
+  "src": [
+   "notes"
+  ]
  },
  {
   "id": 122,
@@ -1413,6 +1789,531 @@
   "blurb": "Her pick for properly good food near Gallipoli, 20 minutes inland.",
   "guide": null,
   "order": null,
-  "warn": null
+  "warn": null,
+  "src": [
+   "notes"
+  ]
+ },
+ {
+  "id": 201,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Orma Roma",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Fine dining & bistrot",
+  "hood": "Ludovisi",
+  "address": "Via Boncompagni 31, 00187 Roma",
+  "lat": 41.908381,
+  "lng": 12.4932246,
+  "blurb": "Colombian chef Roy Caceres's restaurant, bistrot and cocktail bar near the Galleria Borghese, blending Colombian and Italian flavors.",
+  "guide": null,
+  "price": "$$$$",
+  "hours": "Lunch and dinner",
+  "eaterLabel": "Best for",
+  "eater": "The business lunch in the bistrot, where his Uovo 65° carbonara lives."
+ },
+ {
+  "id": 202,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Colline Emiliane",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Emilian trattoria",
+  "hood": "Trevi",
+  "address": "Via degli Avignonesi 22, 00187 Roma",
+  "lat": 41.9029897,
+  "lng": 12.487339,
+  "blurb": "Friendly trattoria near the Trevi Fountain serving Emilia-Romagna's egg pastas and meaty mains since 1931.",
+  "guide": null,
+  "price": "$$$",
+  "hours": "Lunch and dinner",
+  "eaterLabel": "Must-try dishes",
+  "eater": "Tortellini in brodo and the bollito misto."
+ },
+ {
+  "id": 203,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Moriondo e Gariglio",
+  "branch": null,
+  "cat": "sweets",
+  "style": "Chocolatier",
+  "hood": "Centro Storico",
+  "address": "Via del Piè di Marmo 21, 00186 Roma",
+  "lat": 41.8977122,
+  "lng": 12.4793753,
+  "blurb": "Historic chocolate shop near the Pantheon, once chocolatiers to the Savoy court, with 80-plus handmade chocolates.",
+  "guide": null,
+  "price": "$$$",
+  "hours": "All day",
+  "eaterLabel": "Know before you go",
+  "eater": "Chocolate production slows in summer, when pâte de fruits take over. Marrons glacés in autumn."
+ },
+ {
+  "id": 204,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Forno Campo de' Fiori",
+  "branch": null,
+  "cat": "teglia",
+  "style": "Bakery (pizza alla pala)",
+  "hood": "Centro Storico",
+  "address": "Campo de' Fiori 22, 00186 Roma",
+  "lat": 41.8958615,
+  "lng": 12.4715758,
+  "blurb": "Bakery in the corner of Campo de' Fiori selling long slabs of pizza alla pala by weight, plus jam tarts.",
+  "guide": null,
+  "price": "$",
+  "hours": "All day",
+  "eaterLabel": "Must-try dish",
+  "eater": "Pizza bianca with mortadella, one of the best bites in town."
+ },
+ {
+  "id": 205,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Mazzo",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Modern Roman",
+  "hood": "San Lorenzo",
+  "address": "Via degli Equi 62, 00185 Roma",
+  "lat": 41.8956744,
+  "lng": 12.513692,
+  "blurb": "Francesca Barreca and Marco Baccanelli's reopened restaurant, playing with nostalgic Roman forms.",
+  "guide": null,
+  "price": "$$$",
+  "hours": "Dinner",
+  "eaterLabel": "Must-try dishes",
+  "eater": "The fried tripe in tomato sauce, and wagon-wheel pasta with oniony braised beef."
+ },
+ {
+  "id": 206,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Trattoria Monti",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Marchigiana trattoria",
+  "hood": "Esquilino",
+  "address": "Via di San Vito 13, 00185 Roma",
+  "lat": 41.8957045,
+  "lng": 12.5019548,
+  "blurb": "The Camerucci family's trattoria near Termini, cooking dishes from Le Marche: game, fried stuffed olives, fresh pasta.",
+  "guide": null,
+  "price": "$$$",
+  "hours": "Lunch and dinner",
+  "eaterLabel": "Must-try dish",
+  "eater": "The raviolo with a runny egg yolk, butter and sage."
+ },
+ {
+  "id": 207,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Pasticceria Regoli",
+  "branch": null,
+  "cat": "sweets",
+  "style": "Pasticceria",
+  "hood": "Esquilino",
+  "address": "Via dello Statuto 60, 00185 Roma",
+  "lat": 41.8948587,
+  "lng": 12.5009401,
+  "blurb": "One of Rome's most loved pastry shops, run by the Regoli family since 1916; order at the counter to eat at Caffè Regoli next door.",
+  "guide": null,
+  "price": "$",
+  "hours": "All day",
+  "eaterLabel": "Must-try dishes",
+  "eater": "The maritozzi and the wild strawberry tart."
+ },
+ {
+  "id": 208,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Salumeria Roscioli",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Deli, wine bar & restaurant",
+  "hood": "Centro Storico",
+  "address": "Via dei Giubbonari 21, 00186 Roma",
+  "lat": 41.8942474,
+  "lng": 12.4742699,
+  "blurb": "Deli, wine bar and restaurant from Rome's top baking family: stellar cheeses, cured meats and the four Roman pastas.",
+  "guide": null,
+  "price": "$$$$",
+  "hours": "Lunch and dinner",
+  "eaterLabel": "Vibe check",
+  "eater": "Ask for a table upstairs or outside, not the basement. Burrata with semi-dried tomatoes is a must."
+ },
+ {
+  "id": 209,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Mrgda",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Ethiopian & Eritrean",
+  "hood": "Pigneto",
+  "address": "Via Prenestina 182, 00176 Roma",
+  "lat": 41.8921559,
+  "lng": 12.5344814,
+  "blurb": "Ethiopian and Eritrean cooking on Via Prenestina: spiced legumes, braised chicken and raw beef scooped up with sourdough injera.",
+  "guide": null,
+  "price": "$$",
+  "hours": "Lunch and dinner",
+  "eaterLabel": "Know before you go",
+  "eater": "Try the honey wine (tej). A vegan sister restaurant, Mrgda Vegano, is a few blocks away."
+ },
+ {
+  "id": 210,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Ma Che Siete Venuti a Fà",
+  "branch": null,
+  "cat": "bar",
+  "style": "Craft beer pub",
+  "hood": "Trastevere",
+  "address": "Via Benedetta 25, 00153 Roma",
+  "lat": 41.891716,
+  "lng": 12.4691821,
+  "blurb": "Long-running Trastevere craft beer pub with about a dozen drafts and a knowledgeable staff.",
+  "guide": null,
+  "price": "$",
+  "hours": "All day",
+  "eaterLabel": "Best for",
+  "eater": "Trastevere people-watching from the street tables. It's open 365 days a year."
+ },
+ {
+  "id": 211,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Jerry Thomas Bar Room",
+  "branch": null,
+  "cat": "bar",
+  "style": "Cocktail bar",
+  "hood": "Trastevere",
+  "address": "Via del Moro 10, 00153 Roma",
+  "lat": 41.890952,
+  "lng": 12.4705333,
+  "blurb": "Windowless, Orient Express-styled cocktail room with bottled classic cocktails and Champagne.",
+  "guide": null,
+  "price": "$$$",
+  "hours": "Evening to late night",
+  "eaterLabel": "Know before you go",
+  "eater": "Reservations are essential; book one of the 90-minute slots online (from 6 p.m.)."
+ },
+ {
+  "id": 212,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Latteria Trastevere",
+  "branch": null,
+  "cat": "bar",
+  "style": "Natural wine bar & bistro",
+  "hood": "Trastevere",
+  "address": "Vicolo della Scala 1, 00153 Roma",
+  "lat": 41.8908255,
+  "lng": 12.4680652,
+  "blurb": "Natural wine, cheeses and cured meats from tiny producers, plus Sardinian dishes like fregola with crab.",
+  "guide": null,
+  "price": "$$",
+  "hours": "Dinner to late night",
+  "eaterLabel": "Must-try pairing",
+  "eater": "Sardinian prosciutto with wines from Barbagia. Open nearly every day of the year."
+ },
+ {
+  "id": 213,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Sora Lella",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Roman trattoria",
+  "hood": "Isola Tiberina",
+  "address": "Via di Ponte Quattro Capi 16, 00186 Roma",
+  "lat": 41.890775,
+  "lng": 12.4779281,
+  "blurb": "Historic trattoria in a medieval tower on the Tiber Island, back on top form under the third generation.",
+  "guide": null,
+  "price": "$$$",
+  "hours": "Lunch and dinner",
+  "eaterLabel": "Must-try dishes",
+  "eater": "In spring, coratella (lamb offal) with artichokes; otherwise coda alla vaccinara."
+ },
+ {
+  "id": 214,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "L'Antidoto",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Wine bar & modern cooking",
+  "hood": "Trastevere",
+  "address": "Vicolo del Bologna 19, 00153 Roma",
+  "lat": 41.8910355,
+  "lng": 12.4689103,
+  "blurb": "Natural wine bar turned serious restaurant under chef Mirko Pelosi: aged fish, ferments, a constantly changing menu.",
+  "guide": null,
+  "price": "$$$",
+  "hours": "Dinner",
+  "eaterLabel": "Know before you go",
+  "eater": "Two hungry people can, and should, order everything on the menu."
+ },
+ {
+  "id": 215,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Tempio di Iside",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Seafood restaurant",
+  "hood": "Celio",
+  "address": "Via Pietro Verri 11, 00184 Roma",
+  "lat": 41.8896084,
+  "lng": 12.5011383,
+  "blurb": "Elegant fish restaurant near the Colosseum, known for crudi, red shrimp pasta and spaghetti with clams.",
+  "guide": null,
+  "price": "$$$$",
+  "hours": "Lunch and dinner",
+  "eaterLabel": "Know before you go",
+  "eater": "Book ahead, especially for an outdoor table in summer."
+ },
+ {
+  "id": 216,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Menabò Vino e Cucina",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Wine bar & regional cooking",
+  "hood": "Centocelle",
+  "address": "Via delle Palme 44D, 00171 Roma",
+  "lat": 41.889073,
+  "lng": 12.564065,
+  "blurb": "A tour of Italian regional comfort food in Centocelle, with an outstanding natural wine list.",
+  "guide": null,
+  "price": "$$$",
+  "hours": "Dinner",
+  "eaterLabel": "Know before you go",
+  "eater": "The menu always changes; the wine list is consistently excellent."
+ },
+ {
+  "id": 217,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Aqla Street Food",
+  "branch": null,
+  "cat": "quick",
+  "style": "Yemeni & Ethiopian street food",
+  "hood": "Monteverde",
+  "address": "Via Andrea Busiri Vici 11, 00152 Roma",
+  "lat": 41.8827564,
+  "lng": 12.4574566,
+  "blurb": "Family-run Yemeni and Ethiopian cooking: sambusas, rice with beef stew, mutabbaq and sandwiches on Roscioli bread.",
+  "guide": null,
+  "price": "$$",
+  "hours": "Lunch and dinner",
+  "eaterLabel": "Best for",
+  "eater": "Takeaway for a picnic in nearby Villa Pamphili."
+ },
+ {
+  "id": 218,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Santo Palato",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Neo-trattoria",
+  "hood": "San Giovanni",
+  "address": "Via Gallia 28, 00183 Roma",
+  "lat": 41.8814443,
+  "lng": 12.5014401,
+  "blurb": "Sarah Cicolini's bold take on Roman cooking, now in a bigger space: trippa, gizzard frittata, a very yolky carbonara.",
+  "guide": null,
+  "price": "$$$",
+  "hours": "Lunch and dinner",
+  "eaterLabel": "Know before you go",
+  "eater": "The communal table by the entrance takes walk-ins; book well ahead for anywhere else."
+ },
+ {
+  "id": 219,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Mostro",
+  "branch": null,
+  "cat": "bar",
+  "style": "Café & bar",
+  "hood": "Testaccio",
+  "address": "Piazza di Porta San Paolo, 00153 Roma",
+  "lat": 41.877523,
+  "lng": 12.481495,
+  "blurb": "Kiosk under the old Café du Parc sign: specialty coffee in the morning, draft cocktails and natural wine later.",
+  "guide": null,
+  "price": "$",
+  "hours": "All day",
+  "eaterLabel": "Know before you go",
+  "eater": "It's mostly outdoors, so dress for the weather; come early for a calm drink before aperitivo."
+ },
+ {
+  "id": 220,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Trattoria Pennestri",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Modern Roman trattoria",
+  "hood": "Ostiense",
+  "address": "Via Giovanni da Empoli 5, 00154 Roma",
+  "lat": 41.8733681,
+  "lng": 12.4799403,
+  "blurb": "Relaxed trattoria near the center but away from tourists, with smart twists on classics and a small-producer wine list.",
+  "guide": null,
+  "price": "$$$",
+  "hours": "Dinner; lunch on weekends",
+  "eaterLabel": "Know before you go",
+  "eater": "Book ahead, especially on weekends, and let the staff steer you through the wine list."
+ },
+ {
+  "id": 221,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Stecca",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Abruzzese-Roman",
+  "hood": "Garbatella",
+  "address": "Viale Guglielmo Massaia 28, 00154 Roma",
+  "lat": 41.8621362,
+  "lng": 12.4931513,
+  "blurb": "Abruzzo's mountain cooking meets Roman classics in a low-lit Garbatella room, with great bread and wine.",
+  "guide": null,
+  "price": "$$$",
+  "hours": "Dinner",
+  "eaterLabel": "Know before you go",
+  "eater": "A handful of bar seats are ideal for solo diners."
+ },
+ {
+  "id": 222,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Sinosteria",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Chinese regional",
+  "hood": "Marconi",
+  "address": "Viale Guglielmo Marconi 586, 00146 Roma",
+  "lat": 41.8546277,
+  "lng": 12.4719202,
+  "blurb": "Chef Ge Jing Hua's regional Chinese cooking, from Beijing-style tripe to Shandong squid, with a natural wine list.",
+  "guide": null,
+  "price": "$$",
+  "hours": "Lunch and dinner",
+  "eaterLabel": "Must-try pairing",
+  "eater": "Ask Jun, the sommelier, to pick a natural wine or tea."
+ },
+ {
+  "id": 223,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Ristorante da Michele",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Seafood & wine",
+  "hood": "San Paolo",
+  "address": "Via Tiberio Imperatore 95, 00145 Roma",
+  "lat": 41.8512679,
+  "lng": 12.4839229,
+  "blurb": "Family-run neighborhood institution for fresh catch from Fiumicino and Anzio and an exceptional cellar.",
+  "guide": null,
+  "price": "$$$",
+  "hours": "Lunch and dinner",
+  "eaterLabel": "Must-try pairing",
+  "eater": "Linguine with telline or roasted fish, with an older white Burgundy."
+ },
+ {
+  "id": 224,
+  "region": "roma",
+  "src": [
+   "eater"
+  ],
+  "name": "Pizza Nader",
+  "branch": null,
+  "cat": "teglia",
+  "style": "Pizza al taglio & bakery",
+  "hood": "Roma 70",
+  "address": "Via Alberto Ascari 196, 00142 Roma",
+  "lat": 41.8347037,
+  "lng": 12.5037739,
+  "blurb": "Worth the detour: stone-milled flours, deeply flavored slices, naturally leavened breads and great supplì.",
+  "guide": null,
+  "price": "$",
+  "hours": "All day",
+  "eaterLabel": "Must-try dish",
+  "eater": "The kebab, a favorite of regulars."
+ },
+ {
+  "id": 301,
+  "region": "roma",
+  "src": [
+   "you"
+  ],
+  "name": "Trattoria Da Enzo al 29",
+  "branch": null,
+  "cat": "trattoria",
+  "style": "Roman trattoria",
+  "hood": "Trastevere",
+  "address": "Via dei Vascellari 29, 00153 Roma",
+  "lat": 41.8880899,
+  "lng": 12.4777753,
+  "blurb": "Tiny, much-loved Trastevere trattoria for traditional Roman fare.",
+  "guide": null,
+  "mine": "Line up at 11:30 a.m. to avoid the worst of the queue, which can reach 2.5 hours."
  }
 ]

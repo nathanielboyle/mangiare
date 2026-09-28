@@ -2,7 +2,7 @@
 
 An interactive food map with two regions, switched at the top of the page (`#puglia` links straight to the second):
 
-- **Roma:** the 76 places in *The Katie Parla Guide to Eating Well in Rome* (April 2026): trattorie, pizzerie, pizza in teglia, quick bites, sweets, gelato, and markets & shops. Every branch the guide names gets its own pin.
+- **Roma:** 101 places. These are the 76 in *The Katie Parla Guide to Eating Well in Rome* (April 2026), plus 24 more from her [Eater Rome map](https://www.eater.com/maps/best-restaurants-rome-italy) (updated March 26, 2026), plus Trattoria Da Enzo al 29 as your own pick. 17 places appear in both sources and keep one pin, tagged with both. Every branch the guide names gets its own pin. A source filter shows one list at a time, and Eater places carry Eater's price, hours and a paraphrased tip.
 - **Puglia:** 22 restaurants, bakeries, bars and gelaterie from the *Puglia Restaurant Guide (via Katie Parla)* notes, from Bari down to Patù. Take Five in Bari is left out because it has closed.
 
 This is an unofficial companion map.
@@ -41,6 +41,7 @@ Files:
 - `places.json`: the dataset.
 - `src/template.html`, `src/app.js` and `src/build.py`: assemble `index.html`, inlining Leaflet's CSS, the script and the data.
 - `src/site/`: the extra files for the Pages build (service worker, manifest, icons).
+- `tools/build_data_eater.py`: adds the Eater map and your own picks to `places.json`.
 - `tools/`: the Overture fetch, geocoding, dataset and tile scripts used to build the map. They expect the downloaded parquet files in `geo/`.
 
 To rebuild the page after editing `places.json` or the template, run `python3 src/build.py`.

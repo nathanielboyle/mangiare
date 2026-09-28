@@ -57,6 +57,7 @@ h1 em{font-style:italic;font-weight:500;color:var(--ochre)}
 .src a{color:inherit;text-decoration-color:var(--line-2);text-underline-offset:2px}
 .tally{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
 .tally b{color:var(--ink);font-weight:600}
+.offline[hidden]{display:none}
 .offline{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-2)}
 .offline button{border:1px solid var(--line-2);background:var(--raised);border-radius:8px;padding:5px 10px;font-size:12.5px;font-weight:500;cursor:pointer}
 .offline button:disabled{opacity:.6;cursor:progress}
@@ -135,6 +136,10 @@ details.notes .credit{margin:12px 0 0;font-size:11.5px;color:var(--muted)}
 .z-reg .lab.t3{display:none}
 .pop .guide.warn{background:color-mix(in srgb,var(--ochre) 14%,transparent)}
 .pop .guide.warn b{color:var(--ochre)}
+.pop .guide.mine{background:color-mix(in srgb,var(--c-bar) 12%,transparent)}
+.pop .srcs{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+.pop .srctag{font-size:11px;font-weight:600;letter-spacing:.04em;padding:1px 7px;border-radius:999px;border:1px solid var(--line-2);color:var(--ink-2)}
+.pop .srctag.s-you{border-color:var(--c-bar);color:var(--c-bar)}
 .z-hi .lab.hood{font-size:17px}
 .leaflet-popup-content-wrapper{background:var(--surface);color:var(--ink);border-radius:12px;box-shadow:var(--shadow);border:1px solid var(--line)}
 .leaflet-popup-tip{background:var(--surface);border:1px solid var(--line)}
@@ -193,6 +198,7 @@ details.notes .credit{margin:12px 0 0;font-size:11.5px;color:var(--muted)}
           <input id="q" type="search" placeholder="Search" autocomplete="off" aria-label="Search places">
         </label>
         <label class="field" style="flex:0 1 190px"><select id="hood" aria-label="Neighborhood"></select></label>
+        <label class="field" style="flex:1 1 100%"><select id="src-filter" aria-label="Source"></select></label>
       </div>
       <div class="subrow">
         <div class="seg" role="group" aria-label="Show">

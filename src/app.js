@@ -13,9 +13,9 @@ const CAT = Object.fromEntries(CATS.map(c=>[c.k,c]));
 const REGIONS = {
   roma: {
     name:'Rome', title:'Mangiare <em>a</em> Roma', areaAll:'All neighborhoods', areaWord:'Neighborhood',
-    src:'Every trattoria, pizzeria, bakery, gelateria and market in <a href="https://katieparla.com/" target="_blank" rel="noopener">The Katie Parla Guide to Eating Well in Rome</a> (2026), pinned by street address. An unofficial companion map.',
+    src:'Everything in Katie Parla’s <a href="https://katieparla.com/" target="_blank" rel="noopener">Guide to Eating Well in Rome</a> (2026) and her <a href="https://www.eater.com/maps/best-restaurants-rome-italy" target="_blank" rel="noopener">Eater Rome map</a> (March 2026), plus your own picks, pinned by street address. An unofficial companion map.',
     notes:'How Romans eat: notes from the guide', minZoom:11, maxBounds:[[41.79,12.39],[41.975,12.62]], noteLabel:'In the guide',
-    labels:{},
+    labels:{trattoria:{label:'Trattorie & restaurants', one:'Restaurant'}},
   },
   puglia: {
     name:'Puglia', title:'Mangiare <em>in</em> Puglia', areaAll:'All towns', areaWord:'Town',
@@ -24,6 +24,7 @@ const REGIONS = {
     labels:{trattoria:{label:'Restaurants & trattorie', one:'Restaurant'}, teglia:{label:'Bakeries', one:'Bakery'}, gelato:{label:'Gelato & granita', one:'Gelato & granita'}},
   },
 };
+const SOURCES={guide:{label:'Parla guide',long:'Katie Parla’s Rome guide'},eater:{label:'Eater',long:'Eater Rome map'},notes:{label:'Puglia notes',long:'Your Puglia notes'},you:{label:'Your pick',long:'Your picks'}};
 const catLabel=(k,r=state.region)=>(REGIONS[r].labels[k]||CAT[k]).label;
 const catOne=(k,r)=>(REGIONS[r].labels[k]||CAT[k]).one;
 const ICON = {
@@ -60,7 +61,7 @@ function pref(k,v){ try{ if(v===undefined) return localStorage.getItem(KEY+'-'+k
 const allCats = r => CATS.map(c=>c.k).filter(k=>PLACES.some(p=>p.region===r&&p.cat===k));
 const hashRegion = (location.hash||'').slice(1);
 const state={region: REGIONS[hashRegion]?hashRegion:(REGIONS[pref('region')]?pref('region'):'roma'),
-  cats:null, q:'', hood:'', show:'all', group:(pref('group')==='cat'?'cat':'hood'), sel:null};
+  cats:null, q:'', hood:'', src:'', show:'all', group:(pref('group')==='cat'?'cat':'hood'), sel:null};
 state.cats=new Set(allCats(state.region));
 const inRegion = p => p.region===state.region;
 
@@ -102,7 +103,7 @@ const LABELS=[
   ['Trionfale',41.9115,12.4490,2],['Tuscolano',41.8660,12.5470,1],['Appio-Latino',41.8745,12.5095,2],['San Paolo',41.8545,12.4800,2],
   ['Marconi',41.8585,12.4660,2],['Montesacro',41.9385,12.5300,1],['Ponte Milvio',41.9395,12.4700,2],['Parioli',41.9255,12.4940,1],
   ['Vaticano',41.9035,12.4520,2],['Casal Bertone',41.9005,12.5335,2],['Pigneto',41.8895,12.5285,2],['Ghetto',41.8922,12.4760,2],
-  ['Gianicolense',41.8740,12.4400,2],['Re di Roma',41.8810,12.5170,2],
+  ['Gianicolense',41.8740,12.4400,2],['Re di Roma',41.8810,12.5170,2],['Centocelle',41.8860,12.5640,1],['Roma 70',41.8370,12.5010,2],['Isola Tiberina',41.8905,12.4770,2],
   ['Colosseo',41.8902,12.4922,'m'],['Pantheon',41.8986,12.4768,'m'],['Piazza Navona',41.8992,12.4731,'m'],["Campo de' Fiori",41.8956,12.4722,'m'],
   ['San Pietro',41.9022,12.4539,'m'],['Termini',41.9010,12.5015,'m'],['Fontana di Trevi',41.9009,12.4833,'m'],['Piramide',41.8757,12.4818,'m'],
   ['Circo Massimo',41.8859,12.4852,'m'],['Villa Pamphili',41.8850,12.4470,'m'],['Villa Borghese',41.9135,12.4870,'m'],['Piazza di Spagna',41.9057,12.4823,'m'],
@@ -139,10 +140,14 @@ function popupHtml(p){
     <div class="cat"><i style="background:${color(p.cat)}"></i>${esc(catOne(p.cat,p.region))}</div>
     <h3>${esc(p.name)}${p.branch?`<small>${esc(p.branch)} location</small>`:''}</h3>
     <div class="style">${esc(p.style)} · ${esc(p.hood)}</div>
+    ${p.price||p.hours?`<div class="style">${[p.price,p.hours].filter(Boolean).map(esc).join(' · ')}</div>`:''}
+    <div class="srcs">${p.src.map(k=>`<span class="srctag s-${k}">${esc(SOURCES[k].label)}</span>`).join('')}</div>
     <div class="addr">${esc(p.address)}</div>
     <p class="bl">${esc(p.blurb)}</p>
     ${p.order?`<div class="guide"><b>What to order</b>${esc(p.order)}</div>`:''}
     ${p.guide?`<div class="guide"><b>${esc(REGIONS[p.region].noteLabel)}</b>${esc(p.guide)}</div>`:''}
+    ${p.eater?`<div class="guide"><b>Eater · ${esc(p.eaterLabel||'Tip')}</b>${esc(p.eater)}</div>`:''}
+    ${p.mine?`<div class="guide mine"><b>Your note</b>${esc(p.mine)}</div>`:''}
     ${p.warn?`<div class="guide warn"><b>Heads up</b>${esc(p.warn)}</div>`:''}
     <div class="acts">
       <a class="go" href="${gmaps(p)}" target="_blank" rel="noopener">${SVG.go}Directions</a>
@@ -164,16 +169,18 @@ function matches(p){
   if(!inRegion(p)) return false;
   if(!state.cats.has(p.cat)) return false;
   if(state.hood && p.hood!==state.hood) return false;
+  if(state.src && !p.src.includes(state.src)) return false;
   if(state.show==='want' && !want.has(p.id)) return false;
   if(state.show==='been' && !been.has(p.id)) return false;
   if(state.show==='todo' && been.has(p.id)) return false;
-  if(state.q){ const hay=fold(p.name+' '+(p.branch||'')+' '+p.style+' '+p.hood+' '+p.address+' '+catLabel(p.cat,p.region));
+  if(state.q){ const hay=fold(p.name+' '+(p.branch||'')+' '+p.style+' '+p.hood+' '+p.address+' '+catLabel(p.cat,p.region)+' '+p.src.map(k=>SOURCES[k].label).join(' '));
     if(!state.q.split(/\s+/).every(t=>hay.includes(t))) return false; }
   return true;
 }
 const visible = () => PLACES.filter(matches);
 
 // ---- UI: region, chips, area select ----
+const srcSel=document.getElementById('src-filter');
 const chipsEl=document.getElementById('chips'), hoodSel=document.getElementById('hood'), qEl=document.getElementById('q');
 function renderChips(){
   chipsEl.innerHTML=allCats(state.region).map(k=>{ const n=PLACES.filter(p=>inRegion(p)&&p.cat===k).length;
@@ -194,8 +201,13 @@ function renderHoods(){
   hoodSel.innerHTML=`<option value="">${esc(R.areaAll)}</option>`+Object.keys(counts).sort((a,b)=>a.localeCompare(b))
     .map(h=>`<option value="${esc(h)}">${esc(h)} (${counts[h]})</option>`).join('');
   hoodSel.value=state.hood;
+  const sc={}; PLACES.filter(inRegion).forEach(p=>p.src.forEach(k=>sc[k]=(sc[k]||0)+1));
+  const keys=Object.keys(SOURCES).filter(k=>sc[k]);
+  srcSel.innerHTML=`<option value="">All sources</option>`+keys.map(k=>`<option value="${k}">${esc(SOURCES[k].long)} (${sc[k]})</option>`).join('');
+  srcSel.value=state.src; srcSel.parentElement.hidden=keys.length<2;
 }
 hoodSel.addEventListener('change',()=>{ state.hood=hoodSel.value; update(true); });
+srcSel.addEventListener('change',()=>{ state.src=srcSel.value; update(true); });
 qEl.addEventListener('input',()=>{ state.q=fold(qEl.value.trim()); update(false); });
 document.querySelectorAll('[data-show]').forEach(b=>b.addEventListener('click',()=>{ state.show=b.dataset.show;
   document.querySelectorAll('[data-show]').forEach(x=>x.setAttribute('aria-pressed',x===b)); update(true); }));
@@ -216,7 +228,7 @@ function setRegion(r,animate){
   document.getElementById('notes-sum').textContent=R.notes;
   document.querySelectorAll('[data-notes]').forEach(ul=>ul.hidden=ul.dataset.notes!==r);
   document.title=R.title.replace(/<[^>]+>/g,'');
-  state.cats=new Set(allCats(r)); state.hood=''; state.q=''; qEl.value='';
+  state.cats=new Set(allCats(r)); state.hood=''; state.src=''; state.q=''; qEl.value='';
   if(state.sel){ const m=markers[state.sel]; if(m) m.closePopup(); state.sel=null; }
   map.setMaxBounds(null); map.setMinZoom(R.minZoom);
   renderChips(); renderHoods();
@@ -234,7 +246,7 @@ function itemHtml(p){
   return `<div class="item${state.sel===p.id?' sel':''}" data-id="${p.id}" role="button" tabindex="0" aria-label="${esc(fullName(p))}, ${esc(p.style)}">
     <span class="pinmini" style="background:${color(p.cat)}">${ICON[p.cat]}</span>
     <div><div class="nm">${esc(p.name)}${p.branch?` <small>· ${esc(p.branch)}</small>`:''}</div>
-    <div class="meta">${esc(p.style)}${state.group==='cat'?` <span class="h">· ${esc(p.hood)}</span>`:''}</div></div>
+    <div class="meta">${esc(p.style)}${state.group==='cat'?` <span class="h">· ${esc(p.hood)}</span>`:''}${p.region==='roma'?` <span class="h">· ${p.src.map(k=>esc(SOURCES[k].label)).join(', ')}</span>`:''}</div></div>
     <div class="marks">
       <button type="button" class="mk want" data-act="want" data-id="${p.id}" aria-pressed="${w}" title="Want to go" aria-label="Want to go: ${esc(fullName(p))}">${w?SVG.star:SVG.starO}</button>
       <button type="button" class="mk been" data-act="been" data-id="${p.id}" aria-pressed="${b}" title="Been" aria-label="Been: ${esc(fullName(p))}">${b?SVG.check:SVG.checkO}</button>
@@ -252,7 +264,7 @@ function renderList(vis){
     html+=`<section class="group"><h2>${esc(g)}<span>${items.length}</span></h2>${items.map(itemHtml).join('')}</section>`; }
   listEl.innerHTML=html;
 }
-function resetFilters(){ state.cats=new Set(allCats(state.region)); state.q=''; qEl.value=''; state.hood=''; hoodSel.value=''; state.show='all';
+function resetFilters(){ state.cats=new Set(allCats(state.region)); state.q=''; qEl.value=''; state.hood=''; hoodSel.value=''; state.src=''; srcSel.value=''; state.show='all';
   document.querySelectorAll('[data-show]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.show==='all')); renderChips(); update(true); }
 listEl.addEventListener('click',e=>{
   const act=e.target.closest('[data-act]'); if(act){ e.stopPropagation(); toggleMark(+act.dataset.id,act.dataset.act); return; }
